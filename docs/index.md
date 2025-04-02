@@ -1,6 +1,6 @@
 # **Home**
 
-*Last updated: August 5, 2024*    
+*Last updated: April 2, 2025*    
 
 [:fontawesome-brands-github: See the official TREC iKAT repository for tools and code related to the track](https://github.com/irlabamsterdam/iKAT)
 
@@ -35,33 +35,33 @@ All data associated with this work is licensed and released under a
 
 **[Mohammad Aliannejadi](https://aliannejadi.com/), University of Amsterdam, The Netherlands.** Dr. Aliannejadi is an Assistant Professor at the IRLab (formerly known as ILPS), the University of Amsterdam in The Netherlands. His research is in modeling user information needs with a focus on recommender systems, unified (meta) search, and conversational systems. 
 
-**[Zahra Abbasiantaeb](https://zahraabbasiantaeb.github.io/), University of Amsterdam, The Netherlands.** Zahra is a Ph.D. student at the IRLab supervised by Dr. Aliannejadi. She is working on conversational search and recommendation. Earlier, she has also worked on patent reference mining. Zahra obtained her masters in AI from the Amirkabir University of Technology with a focus on Question Answering systems.
+**[Zahra Abbasiantaeb](https://zahraabbasiantaeb.github.io/), University of Amsterdam, The Netherlands.** Zahra is a Ph.D. student at the IRLab supervised by Dr. Aliannejadi. She is working on conversational search and recommendation. Earlier, she has also worked on patent reference mining. Zahra obtained her masters in AI from the Amirkabir University of Technology with a focus on question answering systems.
 
-**[Simon Lupart](https://simonlupart.github.io/), University of Amsterdam, The Netherlands.** Simon is a Ph.D. student at the IRLab supervised by Dr. Aliannejadi and Prof. Kanoulas. He worked in IR for the past two years at Naver Labs Europe, and joined UvA to focus on Conversational search.
+**[Simon Lupart](https://simonlupart.github.io/), University of Amsterdam, The Netherlands.** Simon is a Ph.D. student at the IRLab supervised by Dr. Aliannejadi and Prof. Kanoulas. He worked in IR for the past two years at Naver Labs Europe, and joined UvA to focus on conversational search.
 
-**[Shubham Chatterjee](https://homepages.inf.ed.ac.uk/schatte4/index.html), Missouri University of Science and Technology, Missouri, USA.** Dr. Chatterjee is an Assistant Professor of Computer Science.Dr. Chatterjee works on Neural IR, Entity-Orinted Search, Conversational IR, and the applications for LLMs to these areas.
+**[Nailia Mirzakhmedova](https://www.uni-weimar.de/en/media/chairs/computer-science-department/webis/people/#mirzakhmedova), Bauhaus-Universität Weimar, Germany.** Nailia is a PhD student at the chair of Intelligent Information Systems supervised by Prof. Dr. Benno Stein. Her research focuses on computational argumentation, framing, and user simulation for the evaluation of conversational search systems. 
 
-**[Jeff Dalton](https://www.dcs.gla.ac.uk/~jeff/), University of Edinburgh, Scotland.** Dr. Dalton is a Associate Professor (Reader) and Chancellor's Fellow at the School of Informatics, the University of Edinburgh. He is also a Turing AI Fellow and PI for the GRILL Lab. His research focuses on new methods for machine understanding of language and text data using deep neural networks and entity knowledge graphs for improving information seeking applications.
+**[Marcel Gohsen](https://www.uni-weimar.de/en/media/chairs/computer-science-department/webis/people/gohsen/), Bauhaus-Universität Weimar, Germany.** Marcel is a PhD student at the chair of Intelligent Information Systems supervised by Prof. Dr. Benno Stein. His research concentrates on the intersection between information retrieval and natural language processing with a particular focus on conversational search, user simulation, and generative IR. 
 
-**[Leif Azzopardi](https://www.strath.ac.uk/staff/azzopardileifdr/), University of Strathclyde, Scotland.** Dr. Azzopardi is an Associate Professor in Artifical Intelligence and Data Science within the Departement of Computer and Information Sciences at the University of Strathclyde. He is the PI for the Interaction Lab (i-lab) which specializes in developing, evaluating and modelling information rich and information intensive applications and agents.
+**[Johannes Kiesel](https://www.gesis.org/institut/ueber-uns/mitarbeitendenverzeichnis/person/Johannes.Kiesel), GESIS - Leibniz Institute for the Social Sciences, Cologne, Germany.** Dr. Kiesel is the leader of the Big Data Analytics team at GESIS - Leibniz Institute for the Social Sciences in Cologne, Germany. His main area of interest are argument search, conversational search, human values, and web archives.
 
 
-## **Submit Your Runs (iKAT 2024)**
+## **Submit Your Runs (iKAT 2025)**
 
 We will share details of how to submit the runs soon. We will also provide a validation script to validate your runs for submission. Runs failing the validation script will not be accepted.
 
 ## **Announcements**
 
-- :boom: <span style="color:red;">New!</span> Release of the TREC iKAT 2024 Test Topics.
-- Release of the TREC iKAT 2024 Guidelines.
+- Nothing yet. Stay up-to-date by joining the mailing list and / or the Slack.
 
-## **Publications**
+[//]: # (## **Publications**)
 
-- [iKAT Year 1 Overview Paper](https://arxiv.org/abs/2401.01330)
-- [iKAT Resource Paper. SIGIR 2024](https://arxiv.org/abs/2405.02637)
+[//]: # ()
+[//]: # (- [iKAT Year 1 Overview Paper]&#40;https://arxiv.org/abs/2401.01330&#41;)
 
-## **Contact** 
-- Twitter: [@trec_ikat](https://twitter.com/home)
-- Email: trec.ikat.ai@gmail.com
+[//]: # (- [iKAT Resource Paper. SIGIR 2024]&#40;https://arxiv.org/abs/2405.02637&#41;)
+
+## **Contact**
+- Email: [trec.ikat.ai@gmail.com](mailto:trec.ikat.ai@gmail.com)
 - Google Groups: [trec-ikat@googlegroups.com](https://groups.google.com/u/3/g/trec-ikat)
-- Slack: [ikat-2023](https://app.slack.com/client/TEAQCDVSA/C04QPBXNL01)
+- Slack: [ikat-2025](https://app.slack.com/client/T43BZ4E0K/C08BWS8KM4K)

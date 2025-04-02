@@ -1,10 +1,10 @@
 site_name: TREC Interactive Knowledge Assistance Track (iKAT)
-site_url: https://www.ikat.com/
+site_url: https://www.trecikat.com/
 nav:
     - Home: index.md
-    - Datasets and Resources: data.md
-    - Guidelines: guidelines.md
-    - Getting Started: demo.md
+#    - Datasets and Resources: data.md
+#    - Guidelines: guidelines.md
+#    - Getting Started: demo.md
 markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji 
@@ -50,12 +50,9 @@ extra:
     - icon: fontawesome/solid/envelope
       name: Email Us
       link: mailto:trec.ikat.ai@gmail.com
-    - icon: fontawesome/brands/twitter
-      name: Follow us on Twitter
-      link: https://twitter.com/trec_ikat
     - icon: fontawesome/brands/slack
       name: Join the slack channel
-      link: https://trectalk.slack.com/archives/C04QPBXNL01
+      link: https://app.slack.com/client/T43BZ4E0K/C08BWS8KM4K
     - icon: fontawesome/solid/user-group
       name: Join the Google group
       link: trec-ikat@googlegroups.com
@@ -63,4 +60,4 @@ extra:
       name: See the official TREC iKAT repository
       link: https://github.com/irlabamsterdam/iKAT
      
-copyright: Copyright &copy; 2023 TREC iKAT Organizers
+copyright: Copyright &copy; 2025 TREC iKAT Organizers
