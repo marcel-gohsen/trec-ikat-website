@@ -43,7 +43,7 @@ All data associated with this work is licensed and released under a
 
 **[Marcel Gohsen](https://www.uni-weimar.de/en/media/chairs/computer-science-department/webis/people/gohsen/), Bauhaus-Universität Weimar, Germany.** Marcel is a PhD student at the chair of Intelligent Information Systems supervised by Prof. Dr. Benno Stein. His research concentrates on the intersection between information retrieval and natural language processing with a particular focus on conversational search, user simulation, and generative IR. 
 
-**[Johannes Kiesel](https://www.gesis.org/institut/ueber-uns/mitarbeitendenverzeichnis/person/Johannes.Kiesel), GESIS - Leibniz Institute for the Social Sciences, Cologne, Germany.** Dr. Kiesel is the leader of the Big Data Analytics team at GESIS - Leibniz Institute for the Social Sciences in Cologne, Germany. His main area of interest are argument search, conversational search, human values, and web archives.
+**[Johannes Kiesel](https://kiesels.de/johannes), GESIS - Leibniz Institute for the Social Sciences, Cologne, Germany.** Dr. Kiesel is the leader of the Big Data Analytics team at GESIS - Leibniz Institute for the Social Sciences in Cologne, Germany. His research interests include conversational search, argumentation systems, and user simulation.
 
 
 ## **Submit Your Runs (iKAT 2025)**
