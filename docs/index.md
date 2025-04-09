@@ -1,12 +1,12 @@
 # **Home**
 
-*Last updated: April 2, 2025*    
+*Last updated: April 9, 2025*    
 
 [:fontawesome-brands-github: See the official TREC iKAT repository for tools and code related to the track](https://github.com/irlabamsterdam/iKAT)
 
 ---
 
-## **Introduction to TREC Interactive Knowledge Assistance Track**
+## **About TREC Interactive Knowledge Assistance Track (iKAT)**
 
 The widespread adoption of voice-based assistants is significantly changing how we interact with technology. According to a [Comscore report](https://www.comscore.com/Insights/Blog/Smart-Speaker-Penetration-Hits-20-Percent-of-US-Wi-Fi-Households), over 20% of U.S. households now own a smart speaker. This trend is further exemplified by the recent introduction of assistant-enabled smart glasses by major tech companies, pushing the boundaries of real-world applications.
 
@@ -52,7 +52,11 @@ We will share details of how to submit the runs soon. We will also provide a val
 
 ## **Announcements**
 
-- Nothing yet. Stay up-to-date by joining the mailing list and / or the Slack.
+- Release of a [questionnaire](#feedback) to get feedback on the used document collection.
+
+## **Feedback**
+
+We hope to get your opinion about the document collection used in iKAT 2025. In the following [Google Form](https://forms.gle/ynBKXAvkj4eUQXbT7) you can tell us your opinion which should not take more than 2 minutes of your time. Your input is highly appreciated and can be vital in decision-making of iKAT.
 
 [//]: # (## **Publications**)
 
