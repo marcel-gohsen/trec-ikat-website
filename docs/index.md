@@ -1,6 +1,6 @@
 # **Home**
 
-*Last updated: April 9, 2025*    
+*Last updated: May 8, 2025*    
 
 [:fontawesome-brands-github: See the official TREC iKAT repository for tools and code related to the track](https://github.com/irlabamsterdam/iKAT)
 
