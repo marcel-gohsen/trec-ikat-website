@@ -45,6 +45,7 @@ All data associated with this work is licensed and released under a
 
 **[Johannes Kiesel](https://kiesels.de/johannes), GESIS - Leibniz Institute for the Social Sciences, Cologne, Germany.** Dr. Kiesel is the leader of the Big Data Analytics team at GESIS - Leibniz Institute for the Social Sciences in Cologne, Germany. His research interests include conversational search, argumentation systems, and user simulation.
 
+**[Jeff Dalton](https://www.dcs.gla.ac.uk/~jeff/), University of Edinburgh, Scotland.** Dr. Dalton is a Associate Professor (Reader) and Chancellor's Fellow at the School of Informatics, the University of Edinburgh. He is also a Turing AI Fellow and PI for the GRILL Lab. His research focuses on new methods for machine understanding of language and text data using deep neural networks and entity knowledge graphs for improving information seeking applications.
 
 ## **Submit Your Runs (iKAT 2025)**
 
