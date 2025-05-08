@@ -66,7 +66,17 @@ We hope to get your opinion about the document collection used in iKAT 2025. In 
 
 [//]: # (- [iKAT Resource Paper. SIGIR 2024]&#40;https://arxiv.org/abs/2405.02637&#41;)
 
+
 ## **Contact**
 - Email: [trec.ikat.ai@gmail.com](mailto:trec.ikat.ai@gmail.com)
 - Google Groups: [trec-ikat@googlegroups.com](https://groups.google.com/u/3/g/trec-ikat)
 - Slack: [ikat-2025](https://app.slack.com/client/T43BZ4E0K/C08BWS8KM4K)
+
+## **RAG-related Tracks at TREC 2025**
+
+Besides iKAT, there are other tracks at TREC 2025 that focus on or invite RAG-based solutions, with a similar submission format. Therefore, cross-participation is highly encouraged to explore system performance across domains. 
+
+* [TREC BioGEN 2025 Track](https://dmice.ohsu.edu/trec-biogen/)
+* [TREC DRAGUN 2025 Track](https://trec-dragun.github.io/)
+* [TREC RAG 2025 Track](https://trec-rag.github.io/) 
+* [TREC RAGTIME 2025 Track](https://trec-ragtime.github.io/)
