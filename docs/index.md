@@ -1,6 +1,6 @@
 # **Home**
 
-*Last updated: May 8, 2025*    
+*Last updated: May 16, 2025*    
 
 [:fontawesome-brands-github: See the official TREC iKAT repository for tools and code related to the track](https://github.com/irlabamsterdam/iKAT)
 
@@ -53,18 +53,16 @@ We will share details of how to submit the runs soon. We will also provide a val
 
 ## **Announcements**
 
+- <span style="color:darkred">(New!!)</span> Release of the [guidelines](/guidelines/) for TREC iKAT 2025.
 - Release of a [questionnaire](#feedback) to get feedback on the used document collection.
 
-## **Feedback**
 
-We hope to get your opinion about the document collection used in iKAT 2025. In the following [Google Form](https://forms.gle/ynBKXAvkj4eUQXbT7) you can tell us your opinion which should not take more than 2 minutes of your time. Your input is highly appreciated and can be vital in decision-making of iKAT.
+## **Publications**
 
-[//]: # (## **Publications**)
 
-[//]: # ()
-[//]: # (- [iKAT Year 1 Overview Paper]&#40;https://arxiv.org/abs/2401.01330&#41;)
+- [iKAT Year 1 Overview Paper](https://arxiv.org/abs/2401.01330)
 
-[//]: # (- [iKAT Resource Paper. SIGIR 2024]&#40;https://arxiv.org/abs/2405.02637&#41;)
+- [iKAT Resource Paper. SIGIR 2024](https://arxiv.org/abs/2405.02637)
 
 
 ## **Contact**
