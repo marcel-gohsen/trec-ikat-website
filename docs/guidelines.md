@@ -43,14 +43,16 @@ In Year 3, the following inputs are provided to the participants at each convers
 2. Conversation history (user utterance and system response for previous turns);
 3. The current user utterance.
 
+### **Submission Classes**
+
 We offer the following tasks:
 
-### **Offline Submissions**
+#### **Offline Submissions**
 
 - **Passage Ranking & Response Generation**: For each turn, retrieve and rank relevant passages from the given collection in response to the last user utterance. Then use the ranked passages to generate and return a set of responses, for example using a Retrieval-Augmented Generation (RAG) pipeline. All responses must have at least one passage called “provenance” from the collection.
 - **(Only) Response Generation**: For each turn, given a ranked list of passages, return a set of responses. Hence, in this task, you are provided with the passage provenances and you do not have to do any ranking. You will only submit the generated responses for each conversational turn. 
 
-### <span style="color: darkred">(New!!)</span> **Interactive Submissions**
+#### <span style="color: darkred">(New!!)</span> **Interactive Submissions**
 - **Passage Ranking & Interactive Response Generation**: For each real-time simulated user turn, retrieve and rank relevant passages from the given collection. Then use the ranked passages to generate a personalized response. This response will be passed back to the simulated user, which again produces an utterance. This process will be repeated until the user terminates the conversation. 
 
 For both submission types (offline and interactive) we also offer the PTKB Classification Task:  
@@ -60,8 +62,6 @@ For both submission types (offline and interactive) we also offer the PTKB Class
 We will provide baseline passage ranking and response generation methods for each of the tasks.
 
 **Note**: We do not have manual submission runs this year.
-
-### **Submission Classes**
 
 
 ## **Example Dialogue Tree**
