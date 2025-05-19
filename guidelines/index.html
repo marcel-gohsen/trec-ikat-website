@@ -356,6 +356,16 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#submission-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Submission Classes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Submission Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#offline-submissions" class="md-nav__link">
     <span class="md-ellipsis">
       Offline Submissions
@@ -373,12 +383,8 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#submission-classes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Submission Classes
-    </span>
-  </a>
+      </ul>
+    </nav>
   
 </li>
         
@@ -669,6 +675,16 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#submission-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Submission Classes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Submission Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#offline-submissions" class="md-nav__link">
     <span class="md-ellipsis">
       Offline Submissions
@@ -686,12 +702,8 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#submission-classes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Submission Classes
-    </span>
-  </a>
+      </ul>
+    </nav>
   
 </li>
         
@@ -948,13 +960,14 @@
 <li>Conversation history (user utterance and system response for previous turns);</li>
 <li>The current user utterance.</li>
 </ol>
+<h3 id="submission-classes"><strong>Submission Classes</strong></h3>
 <p>We offer the following tasks:</p>
-<h3 id="offline-submissions"><strong>Offline Submissions</strong></h3>
+<h4 id="offline-submissions"><strong>Offline Submissions</strong></h4>
 <ul>
 <li><strong>Passage Ranking &amp; Response Generation</strong>: For each turn, retrieve and rank relevant passages from the given collection in response to the last user utterance. Then use the ranked passages to generate and return a set of responses, for example using a Retrieval-Augmented Generation (RAG) pipeline. All responses must have at least one passage called “provenance” from the collection.</li>
 <li><strong>(Only) Response Generation</strong>: For each turn, given a ranked list of passages, return a set of responses. Hence, in this task, you are provided with the passage provenances and you do not have to do any ranking. You will only submit the generated responses for each conversational turn. </li>
 </ul>
-<h3 id="new-interactive-submissions"><span style="color: darkred">(New!!)</span> <strong>Interactive Submissions</strong></h3>
+<h4 id="new-interactive-submissions"><span style="color: darkred">(New!!)</span> <strong>Interactive Submissions</strong></h4>
 <ul>
 <li><strong>Passage Ranking &amp; Interactive Response Generation</strong>: For each real-time simulated user turn, retrieve and rank relevant passages from the given collection. Then use the ranked passages to generate a personalized response. This response will be passed back to the simulated user, which again produces an utterance. This process will be repeated until the user terminates the conversation. </li>
 </ul>
@@ -964,7 +977,6 @@
 </ul>
 <p>We will provide baseline passage ranking and response generation methods for each of the tasks.</p>
 <p><strong>Note</strong>: We do not have manual submission runs this year.</p>
-<h3 id="submission-classes"><strong>Submission Classes</strong></h3>
 <h2 id="example-dialogue-tree"><strong>Example Dialogue Tree</strong></h2>
 <p>An example of two different conversations based on different personas for the same topic is shown in the following figure. For each user turn, systems should return a ranked list of text responses. Each response has one or more (ranked) source passages as provenance. In addition, the systems should provide a sorted list of relevant statements of PTKB with the corresponding relevance score.</p>
 <p><img alt="Picture depicting a conversation tree" src="../conversation-tree.jpg" /></p>
