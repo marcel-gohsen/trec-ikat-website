@@ -1,6 +1,6 @@
 # **Home**
 
-*Last updated: May 20, 2025*    
+*Last updated: June 2, 2025*    
 
 [:fontawesome-brands-github: See the official TREC iKAT repository for tools and code related to the track](https://github.com/irlabamsterdam/iKAT)
 
@@ -74,7 +74,7 @@ We will share details of how to submit the runs soon. We will also provide a val
 
 Besides iKAT, there are other tracks at TREC 2025 that focus on or invite RAG-based solutions, with a similar submission format. Therefore, cross-participation is highly encouraged to explore system performance across domains. 
 
-* [TREC BioGEN 2025 Track](https://dmice.ohsu.edu/trec-biogen/)
+* [TREC BioGEN 2025 Track](https://trec-biogen.github.io/docs/)
 * [TREC DRAGUN 2025 Track](https://trec-dragun.github.io/)
 * [TREC RAG 2025 Track](https://trec-rag.github.io/) 
 * [TREC RAGTIME 2025 Track](https://trec-ragtime.github.io/)
