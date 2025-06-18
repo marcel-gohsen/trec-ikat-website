@@ -33,7 +33,7 @@ The persona of the user and their corresponding information needs dictate the di
 
 * **Interactive Submissions**: In Year 3, iKAT is introducing interactive submissions where participants are given access to an API endpoint and will be interacting with a live simulation system on each topic. More details can be found [here](#new-interactive-submissions). 
 * **Multiple dialogues per user persona**: To make the task more realistic and challenging, we are including multiple dialogues per user. This will require long-term memory or dynamic PTKB modeling by the participants to effectively address the user’s needs spread across multiple dialogues. 
-* **Dynamic PTKBs**: As also mentioned earlier, this year’s edition will encourage teams to actively extract and store new PTKB statements from the dialogues to be able to use them in the future dialogues. More details can be found [here](ptkb-statement-provenance-classification). 
+* **Dynamic PTKBs**: As also mentioned earlier, this year’s edition will encourage teams to actively extract and store new PTKB statements from the dialogues to be able to use them in the future dialogues. More details can be found [here](#ptkb-statement-provenance-classification). 
 
 ## **Task Overview**
 
@@ -457,7 +457,7 @@ The SPLADE index was made with the numba library, as in the original [SPLADE git
 
 ## **Topics**
 
-We will provide several sample topics with example baseline runs for validation and testing. Below is a sample topics file with two subtrees of the same topic. Subtrees are identified by topic and subtree ID, i.e. topic 1, subtree 2 is 1-2. Also, a passage_provenance field with a list of provenance passages and a ptkb_provenance field with a list of provenance statements from PTKB, that are used for generating the response, are included. 
+We will provide several sample topics with example baseline runs for validation and testing. Below is a sample topics file from two different personas on the same topic. The `conv_id` represents a concatenation of the persona and topic id `<persona_id>-<topic_id>`. Also, a `citation` field with a list of provenance passages and a `ptkb_provenance` field with a list of provenance statements from PTKB are included. These two fields define the trajectory of the conversation and should be used for generating responses in the offline response generation task.  
 
 ```json
 [
@@ -483,11 +483,10 @@ We will provide several sample topics with example baseline runs for validation 
         "user_utterance": "I want to start my master's degree, can you help me with finding a university?",  
         "resolved_utterance": "I want to start my master's degree, can you help me with finding a university?",  
         "response": "Do you want to continue your bachelor's studies and obtain a degree in computer science?",  
-        "relevant_ptkbs": [  
+        "ptkb_provenance": [  
           "I have a bachelor's degree in computer science." 
-        ],  
-        "citations": [],  
-        "sample_passage_ranking": [  
+        ],
+        "citations": [  
           "clueweb22-en0034-09-03452:1",  
           "clueweb22-en0034-09-03452:3",  
           "clueweb22-en0034-09-03452:5",  
@@ -500,11 +499,10 @@ We will provide several sample topics with example baseline runs for validation 
         "user_utterance": "Yes, I want to continue my studies in computer science.",  
         "resolved_utterance": "Yes, I want to continue my studies in computer science.",  
         "response": "Do you want to study in the Netherlands, Europe, or somewhere further away?",  
-        "relevant_ptkbs": [  
+        "ptkb_provenance": [  
           "I live in the Netherlands." 
-        ],  
-        "citations": [],  
-        "sample_passage_ranking": [  
+        ],
+        "citations": [  
           "clueweb22-en0034-09-03452:2",  
           "clueweb22-en0034-09-03452:4",  
           "clueweb22-en0034-09-03452:6",  
@@ -517,14 +515,11 @@ We will provide several sample topics with example baseline runs for validation 
         "user_utterance": "I'd like to stay here.",  
         "resolved_utterance": "I'd like to stay in the Netherlands.",  
         "response": "I can help you with finding a university for continuing your studies in the Netherlands as a computer science student. Take a look at these Top Computer Science Universities in the Netherlands: Delft University of Technology, Eindhoven University of Technology, Vrije Universiteit Amsterdam, University of Amsterdam, Leiden University, Radboud University, Utrecht University, University of Twente",  
-        "relevant_ptkbs": [  
+        "ptkb_provenance": [  
             "I have a bachelor's degree in computer science.", 
             "I live in the Netherlands." 
-        ],  
-        "citations": [  
-          "clueweb22-en0034-09-03452:1"  
-        ],  
-        "sample_passage_ranking": [  
+        ],
+        "citattions": [  
           "clueweb22-en0012-00-00012:0",  
           "clueweb22-en0012-00-00012:1",  
           "clueweb22-en0012-00-00012:2",  
@@ -535,7 +530,7 @@ We will provide several sample topics with example baseline runs for validation 
     ]  
   },  
   {  
-    "conv_id": "1-2",  
+    "conv_id": "2-2",  
     "title": "Finding a university",  
     "ptkb": [  
      "I don't like crazy cold weather.",  
@@ -553,12 +548,11 @@ We will provide several sample topics with example baseline runs for validation 
         "user_utterance": "I want to start my master's degree, can you help me with finding a university?",  
         "resolved_utterance": "I want to start my master's degree, can you help me with finding a university in Canada?",  
         "response": "Sure, do you want to study computer science?",  
-        "relevant_ptkbs": [  
+        "ptkb_provenance": [  
           "I have bachelor's degree in computer science.",   
           "I plan to move to Canada." 
-        ],  
-        "citations": [],  
-        "sample_passage_ranking": [  
+        ],
+        "citations": [  
           "clueweb22-en0040-41-06056:0",  
           "clueweb22-en0040-41-06056:1",  
           "clueweb22-en0040-41-06056:2",  
@@ -571,32 +565,24 @@ We will provide several sample topics with example baseline runs for validation 
         "user_utterance": "Yes, I want to pursue the same major. Can you tell me the name of the best universities?",  
         "resolved_utterance": "Yes, I want to pursue computer science. Can you tell me the name of the best computer science universities in Canada?",  
         "response": "Here are the top universities for computer science in Canada: 1) University of British Columbia, 2) University of Alberta, 3) Concordia University, 4) Simon Fraser University, 5) The University of Toronto",  
-        "relevant_ptkbs": [],  
+        "ptkb_provenance": [],  
         "citations": [  
           "clueweb22-en0026-31-15538:1",  
           "clueweb22-en0026-31-15538:4",  
           "clueweb22-en0026-31-15538:6",  
           "clueweb22-en0040-41-06056:0"  
-        ],  
-        "sample_passage_ranking": [  
-          "clueweb22-en0010-22-22210:0",  
-          "clueweb22-en0010-22-22210:1",  
-          "clueweb22-en0010-22-22210:2",  
-          "clueweb22-en0010-22-22210:3",  
-          "clueweb22-en0010-22-22210:4"  
-        ]  
+        ]
       },  
       {  
         "turn_id": 3,  
         "user_utterance": "Which of them best suits me in terms of weather conditions?",  
         "resolved_utterance": "Which of the following universities best suits me in terms of weather conditions? 1) the University of British Columbia, 2) the University of Alberta, 3) Concordia University, 4) Simon Fraser University, and 5) The University of Toronto.",  
         "response": "I know you don't like very cold weather, but can you give me an estimation of the temperature that is acceptable for you?",  
-        "relevant_ptkbs": [  
+        "ptkb_provenance": [  
           "I don't like crazy cold weather.",  
           "I'm used to heavy rains in the Netherlands." 
-        ],  
-        "citations": [],  
-        "sample_passage_ranking": [  
+        ],
+        "citations": [  
           "clueweb22-en0030-30-30030:0",  
           "clueweb22-en0030-30-30030:1",  
           "clueweb22-en0030-30-30030:2",  
