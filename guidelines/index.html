@@ -951,7 +951,7 @@
 <ul>
 <li><strong>Interactive Submissions</strong>: In Year 3, iKAT is introducing interactive submissions where participants are given access to an API endpoint and will be interacting with a live simulation system on each topic. More details can be found <a href="#new-interactive-submissions">here</a>. </li>
 <li><strong>Multiple dialogues per user persona</strong>: To make the task more realistic and challenging, we are including multiple dialogues per user. This will require long-term memory or dynamic PTKB modeling by the participants to effectively address the user’s needs spread across multiple dialogues. </li>
-<li><strong>Dynamic PTKBs</strong>: As also mentioned earlier, this year’s edition will encourage teams to actively extract and store new PTKB statements from the dialogues to be able to use them in the future dialogues. More details can be found <a href="ptkb-statement-provenance-classification">here</a>. </li>
+<li><strong>Dynamic PTKBs</strong>: As also mentioned earlier, this year’s edition will encourage teams to actively extract and store new PTKB statements from the dialogues to be able to use them in the future dialogues. More details can be found <a href="#ptkb-statement-provenance-classification">here</a>. </li>
 </ul>
 <h2 id="task-overview"><strong>Task Overview</strong></h2>
 <p>In Year 3, the following inputs are provided to the participants at each conversation turn: </p>
@@ -1350,7 +1350,7 @@
 <p>As of now, our resource includes a BM25 Pyserini index of the collection, and a SPLADE index of the collection. </p>
 <p>The SPLADE index was made with the numba library, as in the original <a href="https://github.com/naver/splade">SPLADE github</a>, and can be re-used for retrieval. It uses the <a href="https://huggingface.co/naver/splade-cocondenser-ensembledistil">SPLADE++ model</a>. </p>
 <h2 id="topics"><strong>Topics</strong></h2>
-<p>We will provide several sample topics with example baseline runs for validation and testing. Below is a sample topics file with two subtrees of the same topic. Subtrees are identified by topic and subtree ID, i.e. topic 1, subtree 2 is 1-2. Also, a passage_provenance field with a list of provenance passages and a ptkb_provenance field with a list of provenance statements from PTKB, that are used for generating the response, are included. </p>
+<p>We will provide several sample topics with example baseline runs for validation and testing. Below is a sample topics file from two different personas on the same topic. The <code>conv_id</code> represents a concatenation of the persona and topic id <code>&lt;persona_id&gt;-&lt;topic_id&gt;</code>. Also, a <code>citation</code> field with a list of provenance passages and a <code>ptkb_provenance</code> field with a list of provenance statements from PTKB are included. These two fields define the trajectory of the conversation and should be used for generating responses in the offline response generation task.  </p>
 <pre><code class="language-json">[
   {
     &quot;conv_id&quot;: &quot;1-1&quot;,
@@ -1374,11 +1374,10 @@
         &quot;user_utterance&quot;: &quot;I want to start my master's degree, can you help me with finding a university?&quot;,  
         &quot;resolved_utterance&quot;: &quot;I want to start my master's degree, can you help me with finding a university?&quot;,  
         &quot;response&quot;: &quot;Do you want to continue your bachelor's studies and obtain a degree in computer science?&quot;,  
-        &quot;relevant_ptkbs&quot;: [  
+        &quot;ptkb_provenance&quot;: [  
           &quot;I have a bachelor's degree in computer science.&quot; 
-        ],  
-        &quot;citations&quot;: [],  
-        &quot;sample_passage_ranking&quot;: [  
+        ],
+        &quot;citations&quot;: [  
           &quot;clueweb22-en0034-09-03452:1&quot;,  
           &quot;clueweb22-en0034-09-03452:3&quot;,  
           &quot;clueweb22-en0034-09-03452:5&quot;,  
@@ -1391,11 +1390,10 @@
         &quot;user_utterance&quot;: &quot;Yes, I want to continue my studies in computer science.&quot;,  
         &quot;resolved_utterance&quot;: &quot;Yes, I want to continue my studies in computer science.&quot;,  
         &quot;response&quot;: &quot;Do you want to study in the Netherlands, Europe, or somewhere further away?&quot;,  
-        &quot;relevant_ptkbs&quot;: [  
+        &quot;ptkb_provenance&quot;: [  
           &quot;I live in the Netherlands.&quot; 
-        ],  
-        &quot;citations&quot;: [],  
-        &quot;sample_passage_ranking&quot;: [  
+        ],
+        &quot;citations&quot;: [  
           &quot;clueweb22-en0034-09-03452:2&quot;,  
           &quot;clueweb22-en0034-09-03452:4&quot;,  
           &quot;clueweb22-en0034-09-03452:6&quot;,  
@@ -1408,14 +1406,11 @@
         &quot;user_utterance&quot;: &quot;I'd like to stay here.&quot;,  
         &quot;resolved_utterance&quot;: &quot;I'd like to stay in the Netherlands.&quot;,  
         &quot;response&quot;: &quot;I can help you with finding a university for continuing your studies in the Netherlands as a computer science student. Take a look at these Top Computer Science Universities in the Netherlands: Delft University of Technology, Eindhoven University of Technology, Vrije Universiteit Amsterdam, University of Amsterdam, Leiden University, Radboud University, Utrecht University, University of Twente&quot;,  
-        &quot;relevant_ptkbs&quot;: [  
+        &quot;ptkb_provenance&quot;: [  
             &quot;I have a bachelor's degree in computer science.&quot;, 
             &quot;I live in the Netherlands.&quot; 
-        ],  
-        &quot;citations&quot;: [  
-          &quot;clueweb22-en0034-09-03452:1&quot;  
-        ],  
-        &quot;sample_passage_ranking&quot;: [  
+        ],
+        &quot;citattions&quot;: [  
           &quot;clueweb22-en0012-00-00012:0&quot;,  
           &quot;clueweb22-en0012-00-00012:1&quot;,  
           &quot;clueweb22-en0012-00-00012:2&quot;,  
@@ -1426,7 +1421,7 @@
     ]  
   },  
   {  
-    &quot;conv_id&quot;: &quot;1-2&quot;,  
+    &quot;conv_id&quot;: &quot;2-2&quot;,  
     &quot;title&quot;: &quot;Finding a university&quot;,  
     &quot;ptkb&quot;: [  
      &quot;I don't like crazy cold weather.&quot;,  
@@ -1444,12 +1439,11 @@
         &quot;user_utterance&quot;: &quot;I want to start my master's degree, can you help me with finding a university?&quot;,  
         &quot;resolved_utterance&quot;: &quot;I want to start my master's degree, can you help me with finding a university in Canada?&quot;,  
         &quot;response&quot;: &quot;Sure, do you want to study computer science?&quot;,  
-        &quot;relevant_ptkbs&quot;: [  
+        &quot;ptkb_provenance&quot;: [  
           &quot;I have bachelor's degree in computer science.&quot;,   
           &quot;I plan to move to Canada.&quot; 
-        ],  
-        &quot;citations&quot;: [],  
-        &quot;sample_passage_ranking&quot;: [  
+        ],
+        &quot;citations&quot;: [  
           &quot;clueweb22-en0040-41-06056:0&quot;,  
           &quot;clueweb22-en0040-41-06056:1&quot;,  
           &quot;clueweb22-en0040-41-06056:2&quot;,  
@@ -1462,32 +1456,24 @@
         &quot;user_utterance&quot;: &quot;Yes, I want to pursue the same major. Can you tell me the name of the best universities?&quot;,  
         &quot;resolved_utterance&quot;: &quot;Yes, I want to pursue computer science. Can you tell me the name of the best computer science universities in Canada?&quot;,  
         &quot;response&quot;: &quot;Here are the top universities for computer science in Canada: 1) University of British Columbia, 2) University of Alberta, 3) Concordia University, 4) Simon Fraser University, 5) The University of Toronto&quot;,  
-        &quot;relevant_ptkbs&quot;: [],  
+        &quot;ptkb_provenance&quot;: [],  
         &quot;citations&quot;: [  
           &quot;clueweb22-en0026-31-15538:1&quot;,  
           &quot;clueweb22-en0026-31-15538:4&quot;,  
           &quot;clueweb22-en0026-31-15538:6&quot;,  
           &quot;clueweb22-en0040-41-06056:0&quot;  
-        ],  
-        &quot;sample_passage_ranking&quot;: [  
-          &quot;clueweb22-en0010-22-22210:0&quot;,  
-          &quot;clueweb22-en0010-22-22210:1&quot;,  
-          &quot;clueweb22-en0010-22-22210:2&quot;,  
-          &quot;clueweb22-en0010-22-22210:3&quot;,  
-          &quot;clueweb22-en0010-22-22210:4&quot;  
-        ]  
+        ]
       },  
       {  
         &quot;turn_id&quot;: 3,  
         &quot;user_utterance&quot;: &quot;Which of them best suits me in terms of weather conditions?&quot;,  
         &quot;resolved_utterance&quot;: &quot;Which of the following universities best suits me in terms of weather conditions? 1) the University of British Columbia, 2) the University of Alberta, 3) Concordia University, 4) Simon Fraser University, and 5) The University of Toronto.&quot;,  
         &quot;response&quot;: &quot;I know you don't like very cold weather, but can you give me an estimation of the temperature that is acceptable for you?&quot;,  
-        &quot;relevant_ptkbs&quot;: [  
+        &quot;ptkb_provenance&quot;: [  
           &quot;I don't like crazy cold weather.&quot;,  
           &quot;I'm used to heavy rains in the Netherlands.&quot; 
-        ],  
-        &quot;citations&quot;: [],  
-        &quot;sample_passage_ranking&quot;: [  
+        ],
+        &quot;citations&quot;: [  
           &quot;clueweb22-en0030-30-30030:0&quot;,  
           &quot;clueweb22-en0030-30-30030:1&quot;,  
           &quot;clueweb22-en0030-30-30030:2&quot;,  
