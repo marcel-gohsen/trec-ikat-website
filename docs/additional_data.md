@@ -1,10 +1,11 @@
 # **Additional Data**
 ---
 
-## **iKAT Year 1 (2023)**
+## **iKAT Year 1 and 2 (2023 and 2024)**
 
 |    File      |      Description      |
 |:------------|:---------------------|
+| 	[2024_test_topics.json](https://drive.google.com/file/d/1pIu_kSn6YHQRX74DFknmjUJA34-JY67M/view?usp=sharing)       |       Test topics in JSON format.             |
 | 	[2023_train_topics.json](https://drive.google.com/file/d/1sNHmVYO9PVG2kFxLscPGhN-uCCUuDAu9/view?usp=sharing)       |       Train topics in JSON format.             |
 | 	[2023_test_topics.json](https://drive.google.com/file/d/1zPSiAqLmbx9QFGm6walnuMUl7xoJmRB7/view?usp=sharing)       |       Test topics in JSON format.             |
 | 	[2023_train_topics_psg_text.jsonl](https://drive.google.com/file/d/1Bk90f0Rd982Px65GDuQayd5s8uXQs9UX/view?usp=sharing)       |       Text of provenance passages in the train topics.             |

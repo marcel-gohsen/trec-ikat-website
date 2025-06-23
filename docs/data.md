@@ -1,15 +1,15 @@
 # **Datasets and Resources**
 ---
 
-## :boom: **Topics for iKAT Year 2 (2024)**
+## :boom: **Topics for iKAT Year 3 (2025)**
 
-|    File      |      Description      |
-|:------------|:---------------------|
-| 	[2024_test_topics.json](https://drive.google.com/file/d/1pIu_kSn6YHQRX74DFknmjUJA34-JY67M/view?usp=sharing)       |       Test topics in JSON format.             |
+| File                                                                                                       |      Description      |
+|:-----------------------------------------------------------------------------------------------------------|:---------------------|
+| 	[2025_test_topics.json](https://github.com/irlabamsterdam/iKAT/blob/main/2025/data/2025_test_topics.json) |       Test topics in JSON format.             |
 
 ## **Additional Data**
 
-We also provide [additional data](additional_data.md) from iKAT Year 1 and TREC CAsT 2019-2022. 
+We also provide [additional data](additional_data.md) from iKAT Year 1 and 2 and TREC CAsT 2019-2022. 
 
 
 ## **TREC iKAT ClueWeb22-B Passage Collection**
