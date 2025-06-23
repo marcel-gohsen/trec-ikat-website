@@ -709,12 +709,12 @@ Below are some useful code resources related to TREC iKAT.
 
 Dates are given in the Anywhere on Earth (AoE) timezone.  
 
-| Task               	              |        Date     	 |
-|:-----------------------------------|------------------:|
-| Guidelines released                | May 16, 2025    	 |
-| Test topics released               |   June, 2025    	 |
-| Submission deadline                | July 23, 2025   	 |
-| Results released to participants   |   October, 2025 	 |
+| Task               	              |         Date     	 |
+|:-----------------------------------|-------------------:|
+| Guidelines released                |  May 16, 2025    	 |
+| Test topics released               | June 23, 2025    	 |
+| Submission deadline                |  July 23, 2025   	 |
+| Results released to participants   |    October, 2025 	 |
 
 
 
