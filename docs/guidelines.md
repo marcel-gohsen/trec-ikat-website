@@ -623,9 +623,9 @@ We have three submission classes for each of the 1) automatic, 2) generation-onl
   "metadata":{ 
     "team_id":"my_favourite_team", 
     "run_id":"my_best_run_02", 
-    "run_type":"automatic", 
-    "topic_id":"1-2_3" 
-  }, 
+    "run_type":"automatic"
+  },
+  "turn_id":"1-2_3", 
   "responses":[ 
     { 
       "rank":1, 
@@ -665,13 +665,15 @@ We have three submission classes for each of the 1) automatic, 2) generation-onl
 
 - The `run_id` is a run submission identifier that should be descriptive and unique to your team and institution. 
 - The `run_type` is one of the three types “automatic”, “generation-only”, or “interactive”. 
-- The `topic_id` is the identifier of each turn of the conversation and has the following format: `{conv_id}_{turn_id}`. For example, `topic_id` of `1-2_3` refers to the turn with `turn_id` of `3` from the conversation with `conv_id` of `1-2`.
+- The `turn_id` is the identifier for each turn of the conversation and has the following format: `{topic_id}_{turn_number}`. For example, `turn_id` of `1-2_3` refers to the turn `3` of topic `1-2`.
 - Each turn should also contain a list of `responses`. A response consists of `text` and a `citations` list. The `citations` list is a list of passage provenances used for generating the response. 
 - Each turn includes a set of statements from the PTKB in the field called `ptkb_provenance`. It can also contain some statements from previous interactions of the user with the system. 
 - The field `references` includes the list of retrieved passages by retrieval model. 
 - For the “generation-only” runs, the `reference` field should be empty.
 
-For provenance ranking, this will be converted to a traditional TREC run format: 
+The run file should be in `.jsonl` format and should include individual JSON objects for each `turn_id`. For readability and illustration purposes, above example was pretty-printed (i.e., line breaks and indents render the example invalid `.jsonl`).     
+
+For provenance ranking, this will be converted to a traditional TREC run format. These rankings are created based on the `references` field: 
 
 ```
 31_1-1 Q0 clueweb22-en0000-94-02275:0 1 0.5 sample_run
