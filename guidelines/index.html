@@ -1525,9 +1525,9 @@
   &quot;metadata&quot;:{ 
     &quot;team_id&quot;:&quot;my_favourite_team&quot;, 
     &quot;run_id&quot;:&quot;my_best_run_02&quot;, 
-    &quot;run_type&quot;:&quot;automatic&quot;, 
-    &quot;topic_id&quot;:&quot;1-2_3&quot; 
-  }, 
+    &quot;run_type&quot;:&quot;automatic&quot;
+  },
+  &quot;turn_id&quot;:&quot;1-2_3&quot;, 
   &quot;responses&quot;:[ 
     { 
       &quot;rank&quot;:1, 
@@ -1567,13 +1567,14 @@
 <ul>
 <li>The <code>run_id</code> is a run submission identifier that should be descriptive and unique to your team and institution. </li>
 <li>The <code>run_type</code> is one of the three types “automatic”, “generation-only”, or “interactive”. </li>
-<li>The <code>topic_id</code> is the identifier of each turn of the conversation and has the following format: <code>{conv_id}_{turn_id}</code>. For example, <code>topic_id</code> of <code>1-2_3</code> refers to the turn with <code>turn_id</code> of <code>3</code> from the conversation with <code>conv_id</code> of <code>1-2</code>.</li>
+<li>The <code>turn_id</code> is the identifier for each turn of the conversation and has the following format: <code>{topic_id}_{turn_number}</code>. For example, <code>turn_id</code> of <code>1-2_3</code> refers to the turn <code>3</code> of topic <code>1-2</code>.</li>
 <li>Each turn should also contain a list of <code>responses</code>. A response consists of <code>text</code> and a <code>citations</code> list. The <code>citations</code> list is a list of passage provenances used for generating the response. </li>
 <li>Each turn includes a set of statements from the PTKB in the field called <code>ptkb_provenance</code>. It can also contain some statements from previous interactions of the user with the system. </li>
 <li>The field <code>references</code> includes the list of retrieved passages by retrieval model. </li>
 <li>For the “generation-only” runs, the <code>reference</code> field should be empty.</li>
 </ul>
-<p>For provenance ranking, this will be converted to a traditional TREC run format: </p>
+<p>The run file should be in <code>.jsonl</code> format and should include individual JSON objects for each <code>turn_id</code>. For readability and illustration purposes, above example was pretty-printed (i.e., line breaks and indents render the example invalid <code>.jsonl</code>).     </p>
+<p>For provenance ranking, this will be converted to a traditional TREC run format. These rankings are created based on the <code>references</code> field: </p>
 <pre><code>31_1-1 Q0 clueweb22-en0000-94-02275:0 1 0.5 sample_run
 </code></pre>
 <p>Runs may include up to 1000 responses for each user turn. For provenance ranking, only the first 1000 pieces of unique provenance will be used. As in previous year of iKAT, only limited top-k responses and provenances will be assessed according to resource constraints.</p>
