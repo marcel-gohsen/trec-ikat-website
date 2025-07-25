@@ -4,6 +4,7 @@ nav:
     - Home: index.md
     - Datasets and Resources: data.md
     - Guidelines: guidelines.md
+    - Simulation API: simulation-api.md
 #    - Getting Started: demo.md
 markdown_extensions:
   - pymdownx.emoji:

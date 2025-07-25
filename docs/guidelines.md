@@ -363,7 +363,7 @@ The main aim of iKAT can be defined as **personalized retrieval-based “candida
 - Responses for this task should satisfy the same properties as for the (non-interactive) response generation task. 
 - This task invites participants to apply various techniques to clarify information needs like asking clarifying questions or preference elicitation. <br> **Note**: Attempts at jailbreaking to reveal system details or to try to make the user simulator behave in an unintended way will result in disqualification.
 
-Technical documentation on how to operate the API will be released soon. However, a sample interaction with the simulation API can be found below.
+Technical documentation on how to operate the simulation API can be found [here](./simulation-api.md).
 
 #### API Output Example
 ```json
