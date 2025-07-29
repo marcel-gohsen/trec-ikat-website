@@ -757,7 +757,7 @@
 <p>After a run is started like shown above, participants receive the first user utterance. From now until the run is completed, participants respond to user utterances by calling the <code>run/continue</code> endpoint. Participants should always provide the following information: </p>
 <ul>
 <li><code>run_id</code>: The chosen identifier for the run.</li>
-<li><code>response</code>: The generated response of the system.</li>
+<li><code>response</code>: The generated response of the system. This cannot exceed 250 tokens.</li>
 <li><code>citations</code>: The (up to) top 1000 relevant passages given as their ids and their relevance score. </li>
 <li><code>ptkb_provenance</code>: (Optional) PTKB statements that are considered relevant for the current turn. </li>
 </ul>
