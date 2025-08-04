@@ -1,6 +1,6 @@
 # **Home**
 
-*Last updated: July 25, 2025*    
+*Last updated: August 4, 2025*    
 
 [:fontawesome-brands-github: See the official TREC iKAT repository for tools and code related to the track](https://github.com/irlabamsterdam/iKAT)
 
@@ -53,8 +53,10 @@ We will share details of how to submit the runs soon. We will also provide a val
 
 ## **Announcements**
 
-- <span style="color:darkred">(New!!)</span> Release of [simulation API documentation](./simulation-api.md).
-- <span style="color:darkred">(New!!)</span> Deadline for the submission to the offline task postponed to 27th July.
+- <span style="color:darkred">(New!!)</span> Limit of submittable runs to the interactive task increased to 4.
+- <span style="color:darkred">(New!!)</span> Deadline for the submission to the interactive task postponed to 15th August.
+- Release of [simulation API documentation](./simulation-api.md).
+- Deadline for the submission to the offline task postponed to 27th July.
 - Release of the [test topics](https://github.com/irlabamsterdam/iKAT/blob/main/2025/data/2025_test_topics.json) for TREC iKAT 2025.  
 - Release of the [guidelines](/guidelines/) for TREC iKAT 2025.
 - Release of a [questionnaire](#feedback) to get feedback on the used document collection.

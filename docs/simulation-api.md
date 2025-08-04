@@ -27,8 +27,6 @@ If your token is valid, the API will respond with:
 
 ## **Submitting Runs**
 
-<span style="color: red">**Important:**</span> This endpoint remains closed up to a couple of days before the deadline.  
-
 <span style="color: red">**Important:**</span> With the following information the final participant runs will be submitted. For debugging and developing participant systems refer to [this information below](#debugging-testing-a-system).  
 
 Conversations are always user-initiated. In a first step, participants submit meta-information about their run and receive the first user utterance for the first topic. From there, participants and the simulated user take turns in responding to each other's utterances. Users terminate the conversations and switch topics automatically.
