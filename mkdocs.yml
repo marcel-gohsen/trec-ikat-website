@@ -1,4 +1,4 @@
-site_name: TREC Interactive Knowledge Assistance Track (iKAT)
+site_name: Interactive Knowledge Assistance Track (iKAT)
 site_url: https://www.trecikat.com/
 nav:
     - Home: index.md
@@ -51,9 +51,9 @@ extra:
     - icon: fontawesome/solid/envelope
       name: Email Us
       link: mailto:trec.ikat.ai@gmail.com
-    - icon: fontawesome/brands/slack
-      name: Join the slack channel
-      link: https://app.slack.com/client/T43BZ4E0K/C08BWS8KM4K
+#    - icon: fontawesome/brands/slack
+#      name: Join the slack channel
+#      link: https://app.slack.com/client/T43BZ4E0K/C08BWS8KM4K
     - icon: fontawesome/solid/user-group
       name: Join the Google group
       link: trec-ikat@googlegroups.com
