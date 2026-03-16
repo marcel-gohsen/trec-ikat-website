@@ -1,7 +1,7 @@
-site_name: Interactive Knowledge Assistance Track (iKAT)
+site_name: ""
 site_url: https://www.trecikat.com/
 nav:
-    - Home: index.md
+    - Overview: index.md
     - Datasets and Resources: data.md
     - Guidelines: guidelines.md
     - Simulation API: simulation-api.md
@@ -12,7 +12,7 @@ markdown_extensions:
       emoji_generator: !!python/name:materialx.emoji.to_svg
 theme: 
   name: material
-  logo: logo.jpg
+  logo: ikat-logo.png
   palette:
      # Palette toggle for light mode
     - scheme: default
@@ -61,4 +61,4 @@ extra:
       name: See the official TREC iKAT repository
       link: https://github.com/irlabamsterdam/iKAT
      
-copyright: Copyright &copy; 2025 TREC iKAT Organizers
+copyright: Copyright &copy; 2026 iKAT Organizers

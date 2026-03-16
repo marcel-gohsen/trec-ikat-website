@@ -4,7 +4,7 @@
 [//]: # ([:fontawesome-brands-github: See the official TREC iKAT repository for tools and code related to the track]&#40;https://github.com/irlabamsterdam/iKAT&#41;)
 
 ---
-> Last updated: March 13, 2026
+> Last updated: March 16, 2026
 
 
 [//]: # (## **Announcements**)
@@ -12,7 +12,7 @@
 ## Overview
 
 
-While the conversational interaction paradigm becomes more and more prevalent for search, the challenge of adapting system responses to individual users (i.e., personalization) still remains a challenge for conversational retrieval systems. Since answer relevance is highly subjective, personalization is necessary to build effective user-centric retrieval systems. From the beginning, personalization of conversational search is the central goal of the Interactive Knowledge Assistance Track (iKAT). The iKAT shared task (formerly hosted at TREC) builds on the four years of success of the TREC Conversational Assistance Track (CAsT).
+While the conversational interaction paradigm becomes more and more prevalent for search, the challenge of adapting system responses to individual users (i.e., personalization) still remains a challenge for conversational retrieval systems. Since answer relevance is highly subjective, personalization is necessary to build effective user-centric retrieval systems. From the beginning, personalization of conversational search is the central goal of the Interactive Knowledge Assistance Track (iKAT). The iKAT shared task can look back on four years under former name, Conversational Assistance Track (CAsT), and three years under the current name, iKAT, hosted at TREC. In 2026, iKAT will be organized in collaboration with the SCAI workshop that will take place at SIGIR 2026 in Melbourne, Australia.
 
 
 ## iKAT @ SCAI 2026
@@ -20,6 +20,21 @@ While the conversational interaction paradigm becomes more and more prevalent fo
 In 2026, iKAT will be hosted in the context of the 10th anniversary of the [Search-Oriented Conversational AI (SCAI)](https://scai.info/scai-2026/) workshop at SIGIR. The focus of iKAT 2026 will be to explore the robustness of conversational retrieval systems towards diverse interaction strategies of individual users. Participant systems interact with various simulated users to provide tailored responses to individual information needs, benchmarking how robust and resilient the systems are when facing various behavioral traits and search strategies.
 
 More information on the submission procedure and guidelines will follow soon!
+
+
+### Important Dates
+
+Preliminary dates for iKAT 2026 are listed below. These dates might be still subject of change. 
+
+* Release of submission guidelines: ASAP
+* System submission opens: May 27, 2026.
+* System submission deadline: June 10, 2026.
+* Report submission deadline: July 17, 2026.
+* **SCAI Workshop: July 24, 2026.**
+
+### Submit Your Runs 
+
+We will soon share details of how to submit the runs. Stay tuned!
 
 
 ## Track Coordinators
@@ -38,17 +53,13 @@ More information on the submission procedure and guidelines will follow soon!
 
 **[Jeff Dalton](https://www.dcs.gla.ac.uk/~jeff/), University of Edinburgh, Scotland.** Dr. Dalton is a Associate Professor (Reader) and Chancellor's Fellow at the School of Informatics, the University of Edinburgh. He is also a Turing AI Fellow and PI for the GRILL Lab. His research focuses on new methods for machine understanding of language and text data using deep neural networks and entity knowledge graphs for improving information seeking applications.
 
-## Submit Your Runs (iKAT 2026)
-
-We will soon share details of how to submit the runs. Stay tuned!
-
 
 ## Publications
 
-
-- [iKAT Year 1 Overview Paper](https://arxiv.org/abs/2401.01330)
-
-- [iKAT Resource Paper. SIGIR 2024](https://arxiv.org/abs/2405.02637)
+- [iKAT 2024] [TREC iKAT 2024: The Interactive Knowledge Assistance Track Overview](https://trec.nist.gov/pubs/trec33/papers/Overview_ikat.pdf)
+- [iKAT 2024] [Conversational Gold: Evaluating Personalized Conversational Search System Using Gold Nuggets](https://dl.acm.org/doi/abs/10.1145/3726302.3730316)
+- [iKAT 2023] [TREC iKAT 2023: The Interactive Knowledge Assistance Track Overview](https://arxiv.org/abs/2401.01330)
+- [iKAT 2023] [TREC iKAT 2023: A Test Collection for Evaluating Conversational and Interactive Knowledge Assistants](https://dl.acm.org/doi/abs/10.1145/3626772.3657860)
 
 
 ## Contact
