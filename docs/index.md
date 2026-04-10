@@ -4,7 +4,7 @@
 [//]: # ([:fontawesome-brands-github: See the official TREC iKAT repository for tools and code related to the track]&#40;https://github.com/irlabamsterdam/iKAT&#41;)
 
 ---
-> Last updated: March 16, 2026
+> Last updated: April 10, 2026
 
 
 [//]: # (## **Announcements**)
@@ -27,10 +27,16 @@ More information on the submission procedure and guidelines will follow soon!
 Preliminary dates for iKAT 2026 are listed below. These dates might be still subject of change. 
 
 * Release of submission guidelines: ASAP
+* Registration deadline: May 27, 2026.
 * System submission opens: May 27, 2026.
 * System submission deadline: June 10, 2026.
 * Report submission deadline: July 17, 2026.
 * **SCAI Workshop: July 24, 2026.**
+
+### Registration
+
+In order to participate at iKAT, please fill out the following [registration form](https://form.jotform.com/260753949743066) before the registration deadline.
+
 
 ### Submit Your Runs 
 
@@ -39,11 +45,11 @@ We will soon share details of how to submit the runs. Stay tuned!
 
 ## Track Coordinators
 
+**[Marcel Gohsen](https://www.uni-weimar.de/en/media/chairs/computer-science-department/webis/people/gohsen/), Bauhaus-Universität Weimar, Germany.** Marcel is a PhD student at the chair of Intelligent Information Systems supervised by Prof. Dr. Benno Stein. His research concentrates on the intersection between information retrieval and natural language processing with a particular focus on conversational search, user simulation, and generative IR.
+
 **[Mohammad Aliannejadi](https://aliannejadi.com/), University of Amsterdam, The Netherlands.** Dr. Aliannejadi is an Assistant Professor at the IRLab (formerly known as ILPS), the University of Amsterdam in The Netherlands. His research is in modeling user information needs with a focus on recommender systems, unified (meta) search, and conversational systems. 
 
 **[Simon Lupart](https://simonlupart.github.io/), University of Amsterdam, The Netherlands.** Simon is a Ph.D. student at the IRLab supervised by Dr. Aliannejadi and Prof. Kanoulas. He worked in IR for the past two years at Naver Labs Europe, and joined UvA to focus on conversational search.
-
-**[Marcel Gohsen](https://www.uni-weimar.de/en/media/chairs/computer-science-department/webis/people/gohsen/), Bauhaus-Universität Weimar, Germany.** Marcel is a PhD student at the chair of Intelligent Information Systems supervised by Prof. Dr. Benno Stein. His research concentrates on the intersection between information retrieval and natural language processing with a particular focus on conversational search, user simulation, and generative IR.
 
 **[Zahra Abbasiantaeb](https://zahraabbasiantaeb.github.io/), University of Amsterdam, The Netherlands.** Zahra is a Ph.D. student at the IRLab supervised by Dr. Aliannejadi. She is working on conversational search and recommendation. Earlier, she has also worked on patent reference mining. Zahra obtained her masters in AI from the Amirkabir University of Technology with a focus on question answering systems.
 
@@ -56,6 +62,7 @@ We will soon share details of how to submit the runs. Stay tuned!
 
 ## Publications
 
+- [iKAT 2025] [TREC iKAT 2025: The Interactive Knowledge Assistance Track Overview](https://pages.nist.gov/trec-browser/trec34/ikat/proceedings/#trec-ikat-2025-the-interactive-knowledge-assistance-track-overview)
 - [iKAT 2024] [TREC iKAT 2024: The Interactive Knowledge Assistance Track Overview](https://trec.nist.gov/pubs/trec33/papers/Overview_ikat.pdf)
 - [iKAT 2024] [Conversational Gold: Evaluating Personalized Conversational Search System Using Gold Nuggets](https://dl.acm.org/doi/abs/10.1145/3726302.3730316)
 - [iKAT 2023] [TREC iKAT 2023: The Interactive Knowledge Assistance Track Overview](https://arxiv.org/abs/2401.01330)
