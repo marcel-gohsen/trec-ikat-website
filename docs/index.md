@@ -28,7 +28,7 @@ More information on the submission procedure and guidelines will follow soon!
 
 Preliminary dates for iKAT 2026 are listed below. These dates might be still subject of change. 
 
-* Release of submission guidelines: April, 27, 2026.
+* Release of submission guidelines: April 27, 2026.
 * Registration deadline: May 27, 2026.
 * System submission opens: May 27, 2026.
 * System submission deadline: June 10, 2026.
