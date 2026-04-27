@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#trec-ikat-simulation-api" class="md-skip">
+        <a href="#simulation-api-simapi" class="md-skip">
           Skip to content
         </a>
       
@@ -691,8 +691,8 @@
 
 
 
-<h1 id="trec-ikat-simulation-api"><strong>TREC iKAT Simulation API</strong></h1>
-<p>In TREC iKAT Year 3, we offer an interactive task in which a simulated user sends out utterances to participants' systems. For more information on this task please check <a href="../guidelines/#new-interactive-response-generation">the guidelines</a>.</p>
+<h1 id="simulation-api-simapi"><strong>Simulation API (Sim.API)</strong></h1>
+<p>Like last year, iKAT 2026 offers an interactive task in which a simulated user sends out utterances to participants' systems. For more information on the task please check <a href="../guidelines/">the guidelines</a>.</p>
 <p>This API can be used for two main purposes:</p>
 <ol>
 <li><a href="#submitting-runs">Submitting runs for the interactive task</a>.   </li>
@@ -700,7 +700,7 @@
 </ol>
 <p>The API is available at <a href="https://trec-ikat25.webis.de/simulation/">https://trec-ikat25.webis.de/simulation/</a>. From there you will be redirected to a reference of all provided endpoints and their expected in- and outputs.</p>
 <h2 id="authentication"><strong>Authentication</strong></h2>
-<p>Participants need to be registered to TREC iKAT to use this API. You can use <a href="https://docs.google.com/forms/d/1e7mZsiGXNzXXRVAddU5Mnrzy5-zdNW9ZHuIi4xBMf-o/edit">this form</a> to do so. As a result, participants will receive a base64-encoded access token by mail. </p>
+<p>Participants need to be registered to iKAT to use this API. Please refer to the registration instructions <a href="../#registration">here</a>. As a result, participants will receive a base64-encoded access token by mail. </p>
 <p>All requests to this API have to be authenticated. Participants can authenticate themselves by providing their access token in the HTTP <code>Authorization</code> header. </p>
 <p>You can test if your access token is valid by calling the following method:</p>
 <pre><code class="language-bash">curl -H &quot;Authorization: Bearer &lt;token&gt;&quot; https://trec-ikat25.webis.de/simulation/auth/verify
@@ -884,11 +884,9 @@
 ]
 </code></pre>
 <h2 id="support"><strong>Support</strong></h2>
-<p>Questions, technical issues or feedback? Write a mail or send a message in the Slack:</p>
+<p>Questions, technical issues or feedback? Don't hesitate to write a mail.</p>
 <ul>
-<li>Email: <a href="mailto:trec.ikat.ai@gmail.com">trec.ikat.ai@gmail.com</a></li>
-<li>Email: <a href="mailto:marcel.gohsen@uni-weimar.de">marcel.gohsen@uni-weimar.de</a>. </li>
-<li>Slack: <a href="https://app.slack.com/client/T43BZ4E0K/C08BWS8KM4K">ikat-2025</a></li>
+<li>Email: <a href="mailto:marcel.gohsen@uni-weimar.de">marcel.gohsen@uni-weimar.de</a>.</li>
 </ul>
 
 
