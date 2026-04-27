@@ -1,22 +1,15 @@
-# **Guidelines for iKAT 2025 Year 3** 
+# **Guidelines for iKAT 2026 Year 4** 
 
-The guidelines for iKAT 2024 (year 2) are now available as a [**Google Doc**](https://docs.google.com/document/d/1S0_HpzTg1WKQ4mx7ps6d3-ChB9dmmtk8YPyYjCsZv_4/edit?usp=sharing).
-
-The guidelines for iKAT 2023 (year 1) are also available as a [**Google Doc**](https://docs.google.com/document/d/1dso0VANm5Q08UWt4ppZvzvH6zkpRhfoukwpBgeJNbHE/edit?usp=sharing).
+> - The guidelines for iKAT 2024 (year 2) are available as a [**Google Doc**](https://docs.google.com/document/d/1S0_HpzTg1WKQ4mx7ps6d3-ChB9dmmtk8YPyYjCsZv_4/edit?usp=sharing).
+> - The guidelines for iKAT 2023 (year 1) are available as a [**Google Doc**](https://docs.google.com/document/d/1dso0VANm5Q08UWt4ppZvzvH6zkpRhfoukwpBgeJNbHE/edit?usp=sharing).
 
 ---
-
-## **Participation**
-
-Participants [must register](https://ir.nist.gov/evalbase/accounts/login/?next=/evalbase/) to submit. To request a late registration, please email [trec@nist.gov](mailto:trec@nist.gov) requesting a registration key. The dissemination form must be returned to submit runs.
-
-As a result of the registration, participants will receive an access token with which participants can authenticate themselves to be able to use the simulation API in order to participate in the interactive task. 
 
 ## **Motivation**
 
 The TREC Interactive Knowledge Assistance Track (iKAT) aims to advance research on collaborative information-seeking conversational agents that generate personalized responses by leveraging information learned about the user. 
 
-In iKAT, the conversation progresses not only based on prior system responses but also on personal user information. As a result, given the same topic, users with different profiles may follow distinct conversational paths, influencing acceptable system responses for the same underlying information need. With the advent of large language models (LLMs), this task is especially timely—raising new challenges in integrating personalization through context-aware prompting, dynamic interaction, and mixed-initiative dialogue. 
+In iKAT,  given the same topic, users with different personas may follow distinct conversational paths, which affects which system responses are deemed acceptable for the same underlying information need. With the advent of large language models (LLMs), this task is especially timely—raising new challenges in integrating personalization through context-aware prompting, dynamic interaction, and mixed-initiative dialogue. In addition, iKAT explores a simulation-based evaluation methodology to advance research on modeling different users and their associated behaviors.  
 
 
 ## **Track Overview**
@@ -24,49 +17,35 @@ In iKAT, the conversation progresses not only based on prior system responses bu
 In iKAT, the next turn of a conversation is influenced by the following aspects. 
 
 1. The previous responses from the system and utterances from the user. 
-2. The given persona of the user. 
-3. The information revealed by the user during the conversation (background, perspective, previous conversations, and context).  
+2. The persona of the user. 
+3.  The information revealed by the user during the conversation (background, perspective, previous conversations, and context).  
 
-The persona of the user and their corresponding information needs dictate the direction of a conversation. Each user is assigned a distinct persona and will engage in multiple conversations across different topics. For different users, different system responses are acceptable, which demonstrates the personalized nature of the conversations. To this end, the persona and the information needs of the user are modeled by generating a Personal Textual Knowledge Base (PTKB) which is available to the system during the conversation.  
+Each user is assigned a distinct persona and will engage in multiple conversations across different topics. The persona and the information needs of the user are modeled by generating a Personal Textual Knowledge Base (PTKB) which is available to the system during the conversation to simulate information the system gained on the user in previous conversations.  
+
 
 ## **What’s New?** 
 
-* **Interactive Submissions**: In Year 3, iKAT is introducing interactive submissions where participants are given access to an API endpoint and will be interacting with a live simulation system on each topic. More details can be found [here](#new-interactive-submissions). 
-* **Multiple dialogues per user persona**: To make the task more realistic and challenging, we are including multiple dialogues per user. This will require long-term memory or dynamic PTKB modeling by the participants to effectively address the user’s needs spread across multiple dialogues. 
-* **Dynamic PTKBs**: As also mentioned earlier, this year’s edition will encourage teams to actively extract and store new PTKB statements from the dialogues to be able to use them in the future dialogues. More details can be found [here](#ptkb-statement-provenance-classification). 
+- **Modelling of diverse search behavior**: In year 4, iKAT employs simulated users that implement diverse search behaviors (e.g., language skills, cooperativeness, patience), while having exactly the same information need. Participating systems should be robust in the sense that they assist every user to satisfy their information needs. 
+- **Interactive-only submissions**: This year, we only accept interactive submissions where the participant systems will interact with simulated users through an online API.  
+
 
 ## **Task Overview**
 
-In Year 3, the following inputs are provided to the participants at each conversation turn: 
+Participants of iKAT will receive the following resources to provide their run submissions. 
 
-1. Personal Text Knowledge Base (PTKB);
-2. Conversation history (user utterance and system response for previous turns);
-3. The current user utterance.
+1. Test dataset that contains the following information:
+   1. Topics 
+   2. Example conversations
+   3. Personal Text Knowledge Bases (PTKB) of the users
+2. Passage collection (ClueWeb22-B)
+3. Access to the user simulation API ([Sim.API](https://github.com/marcel-gohsen/user-simulation-api)) and documentation. 
 
-### **Submission Classes**
-
-We offer the following tasks:
-
-#### **Offline Submissions**
-
-- **Passage Ranking & Response Generation**: For each turn, retrieve and rank relevant passages from the given collection in response to the last user utterance. Then use the ranked passages to generate and return a set of responses, for example using a Retrieval-Augmented Generation (RAG) pipeline. All responses must have at least one passage called “provenance” from the collection.
-- **(Only) Response Generation**: For each turn, given a ranked list of passages, return a set of responses. Hence, in this task, you are provided with the passage provenances and you do not have to do any ranking. You will only submit the generated responses for each conversational turn. 
-
-#### <span style="color: darkred">(New!!)</span> **Interactive Submissions**
-- **Passage Ranking & Interactive Response Generation**: For each real-time simulated user turn, retrieve and rank relevant passages from the given collection. Then use the ranked passages to generate a personalized response. This response will be passed back to the simulated user, which again produces an utterance. This process will be repeated until the user terminates the conversation. 
-
-For both submission types (offline and interactive) we also offer the PTKB Classification Task:  
-
-- **PTKB Statement Classification**: For each turn, given the PTKB, return a list of the relevant PTKB statements. This task is essentially a binary classification task. So, the output required is a list of relevant statements from the PTKB. 
-
-We will provide baseline passage ranking and response generation methods for each of the tasks.
-
-**Note**: We do not have manual submission runs this year.
+**Task**: For each real-time simulated user turn, retrieve and rank relevant passages from the passage collection. Then use the ranked passages to generate a personalized response based on the user’s PTKB, user utterance, and context. This response is passed back to the simulated user, which again produces an utterance. This process is repeated until the user terminates the conversation. Along with the generated text response, the systems have to provide the ranked list of passages (citations), and the PTKB statements that were deemed relevant for each produced turn.
 
 
 ## **Example Dialogue Tree**
 
-An example of two different conversations based on different personas for the same topic is shown in the following figure. For each user turn, systems should return a ranked list of text responses. Each response has one or more (ranked) source passages as provenance. In addition, the systems should provide a sorted list of relevant statements of PTKB with the corresponding relevance score.
+An example of two different conversations based on different personas for the same topic is shown in the following figure. For each user turn, systems should return a text response. Each response has one or more (ranked) source passages as provenance. In addition, the systems should provide a list of relevant statements of PTKB with the corresponding relevance score, sorted by this score. 
 
 ![Picture depicting a conversation tree](conversation-tree.jpg)
 
@@ -316,54 +295,37 @@ Below, we provide a detailed explanation of the above diagram.
 </tr>
 </table>
 
-
-## **Primary Task Details**
-
-The main aim of iKAT can be defined as **personalized retrieval-based “candidate response generation” in the context of a conversation and a set PTKB statements**. A detailed explanation of the subtasks is provided in the following. 
-
-### **PTKB Statement (provenance) Classification**
-- This task is a binary classification problem. The output is a list of the statements from PTKB that are relevant for responding to the user’s utterance. 
-- The provenance PTKB statements can be an empty list for some responses.
+## **PTKB Statement Classification and Extraction**
+- This task can be understood as a binary classification problem. The output is a list of the statements from PTKB that are relevant for responding to the user’s utterance. 
+- The provenance PTKB statements can be an empty list for some responses. 
 - The PTKB statements can be taken from the given list of PTKB statements, or extracted from previous user conversations. 
-- <span style="color: darkred">(New!!)</span> New PTKB statements can be extracted from the previous conversations and mentioned in the list of relevant PTKB statements. 
+- New PTKB statements can be extracted from the previous conversations and mentioned in the list of relevant PTKB statements. 
 
-### **Passage Ranking (citation)**
-- The provided context for passage ranking per each user utterance includes:
-  	- A fixed set of previous utterances and responses in the preceding turns up to the current step, 
-    - PTKB of the user provided at the beginning of the conversation, 
-    - The previous conversation of the same user with the system.  
-      **Note**: this information is only important for a better (or updated) understanding of the persona of the user and the information need of the user in the current turn is not dependent on the previous conversations.
-- **Note**: Using information from 1) following turns and 2) the relevant PTKB statements from previous turns **is not allowed**.  
-- A run must include the provenance passages retrieved by the retrieval model (called “references” in the submission format) for all turns of the conversation. 
-- The “reference” field is a list of the top 1000 passages retrieved by the retrieval model based on their relevance. The passages must be included in this field using the format `doc_id:passage_id`.
-- The first 1000 provenance passages for each turn will be assessed.
-- **Note**: for each turn of the conversation, there is only one “reference” field in the submission format. This means that the participants are only allowed to submit one ranked list of the passages for each turn. 
+## **Passage Ranking (citation)**
+- A run should include relevant passages retrieved by the retrieval model (called “citations” in the submission format) for most turns of the conversation.
+- If the turn’s action is not an answer (e.g., clarifying questions), the “citations” field can be left empty, as shown in the example above. 
+- The “citations” field is a list of the max. top 10 passages retrieved by the retrieval model based on their relevance. The passages must be provided as doc_id:passage_id. 
+- The top 10 relevant passages for each turn will be assessed. 
 
 
-### **Response Generation**
-- Each response can be generated from multiple passages. It can be an abstractive or extractive summary of the corresponding passages, or a text generated by a Retrieval-Augment Generation (RAG) model. 
-- Each response must have one or more passages as provenance from the collection used to produce it. 
-- A run can have multiple responses for each turn. We will assess just the first response (or the response with “rank=1”) for each turn. 
-- The passages used for generating each response must be mentioned in the “citations” field using the format `doc_id:passage_id`.  
-- We will not evaluate the responses without any provenance passages (i.e. an empty list of “citations”). 
-- Because a response may have multiple source passages, the score of passages in the citations list for a response is used to order passages in descending order. 
-- A response is a text suitable for showing to the user. It should be fluent, satisfy their information needs, and not contain extraneous or redundant information.  
-- A response is limited to a **maximum of 250 words** (as measured by the `Tokenizer` function of `spacy.tokenizer` in spaCy v3.3 library) but should vary depending on an appropriate query-response. 
+## **Response Generation**
+- Responses can be generated from multiple passages. Responses can be an abstractive or extractive summary of the corresponding passages, or a text generated by a retrieval-augment generation (RAG) approach. 
+- A response is a text suitable for showing to a user. It should be fluent, satisfy their information needs, and not contain extraneous or redundant information. Clarifying or elicitation questions (or other mixed-initiative st 
+- A response is limited to a maximum of 250 words (as measured by the `Tokenizer` function of `spacy.tokenizer` in spaCy v3.3 library). 
 
-### <span style="color: darkred">(New!!)</span> **Interactive Response Generation**
+## **Interactive Run Submission**
 
-- Conversations in this task are always user initiated. After submitting run meta information to the simulation API, participants receive the first user utterance.
+- Conversations in this task are always initiated by the simulated user. On submitting run meta information to the simulation API, participants receive the first user utterance. 
 - Participant systems should retrieve relevant passages from the collection based on the utterance and generate a response. The ranked list of passages and the generated response should be sent back to the simulation API.
-- Sending back the passages and the response results in a new user utterance provided by the API on the same topic to which the participant system should respond again.
-- This process is repeated until the user indicates (through a flag, `last_response_of_session`) that they terminate the current session.
-- The next request of a participant system then leads to a user utterance for a new session on a new topic with a (potential) new user.
+- On sending back the passages and the response results, participants receive a new user utterance from the API. 
+- This process is repeated until the user indicates (through a flag, last_response_of_session) that they terminate the current session.
+- The next request of a participant system then leads to a user utterance for a new session on a new topic with a (potential) new user. 
 - This process is repeated until all topics in the test set have been addressed, which will also be indicated through a flag in the API. 
-- After all topics have been addressed, the run counts as submitted (no additional submission of a run file required).   
-- Responses from the simulation API contain identifiers to differentiate with which user the participants system currently talks with. This allows participants to track PTKB statements of reoccurring users. If participants track PTKB statements they can provide relevant statements through the API as well.
-- Responses for this task should satisfy the same properties as for the (non-interactive) response generation task. 
-- This task invites participants to apply various techniques to clarify information needs like asking clarifying questions or preference elicitation. <br> **Note**: Attempts at jailbreaking to reveal system details or to try to make the user simulator behave in an unintended way will result in disqualification.
+- After all topics have been addressed, the run counts as submitted (no additional submission of a run file required).
+- Responses from the simulation API contain identifiers to differentiate with which user the participants' system currently talks with. This allows participants to track persona statements of reoccurring users. If participants track persona statements they can provide relevant statements through the API as well.
+- This task invites participants to apply various techniques to clarify information needs like asking clarifying questions or preference elicitation. However, attempts at jailbreaking to reveal PTKBs or other system details will result in disqualification.  
 
-Technical documentation on how to operate the simulation API can be found [here](./simulation-api.md).
+Technical documentation on how to operate Sim.API can be found [here](./simulation-api.md). A sample interaction with Sim.API can be found below.
 
 #### API Output Example
 ```json
@@ -399,61 +361,39 @@ Technical documentation on how to operate the simulation API can be found [here]
 } 
 ```
 
+## **User Simulators**
+
+Participant systems will interact with a secret set of user simulator implementations. In particular, this year will focus on modelling aspects that contribute to diverse search behaviors. An attribute that comes to mind is, for example, language proficiency and the ability to articulate a query for an information need. As a result, queries might be vague and ambiguous. Another example of such a property is a user’s patience, who could produce emotionally loaded responses whenever his information need is not immediately satisfied. The goal for the participant’s systems is to help each user satisfy their information need independently of how uncooperative their behaviors might seem.  
+
 ## **Collection**
 
-The text collection contains a subset of ClueWeb22 documents, prepared by the organizers in collaboration with CMU. Documents have then been split into ~116M passages. The goal is to retrieve passages from target open-domain text collections. 
+The text collection contains a subset of ClueWeb22 documents, prepared by the organizers in collaboration with CMU. Documents have been split into ~116M passages. The goal is to retrieve passages from target open-domain text collections.  
 
 ### **License for ClueWeb22-B**
 
-Getting the license to use the collection can be time-consuming and would be handled by CMU, not the iKAT organizers. Please follow these steps to get your data license ASAP: 
+Getting the license to use the collection can be time-consuming and would be handled by CMU, not the iKAT organizers. Please follow these steps to get your data license ASAP:
 
 - Sign the license form available on the ClueWeb22 project [web page](https://lemurproject.org/clueweb22/obtain.php) and send the form to CMU for approval ([clueweb@andrew.cmu.edu](mailto:clueweb@andrew.cmu.edu)).
+- TBA.
 
-- Once you have the license, send a mail to Andrew Ramsay ([andrew.ramsay@glasgow.ac.uk](mailto:andrew.ramsay@glasgow.ac.uk)) to have access to a download link with the preprocessed iKAT passage collection, and other resources such as Lucene and SPLADE indices. 
+> Instructions on how to download the collection follow ASAP.
+
+[//]: # (- Once you have the license, send a mail to Andrew Ramsay &#40;[andrew.ramsay@glasgow.ac.uk]&#40;mailto:andrew.ramsay@glasgow.ac.uk&#41;&#41; to have access to a download link with the preprocessed iKAT passage collection, and other resources such as Lucene and SPLADE indices. )
 
 Please give enough time to the CMU licensing office to accept your request.
 
+**Note.**
 - CMU requires a signature from the organization (i.e., the university or company), not an individual who wants to use the data. This can slow down the process at your end too. So, it’s useful to start the process ASAP.
 - If you already have an accepted license for ClueWeb22, you do not need a new form. Please let us know if that is the case.
 - As an alternative for (2), once you have access to ClueWeb22, you can get the raw ClueWeb22-B/iKAT collection yourself with the license, and do all passage-segmentation yourself, but we advise you to use our processed version to avoid any error.
 
 Please do feel free to reach out to us if you have any questions or doubts about the process, so we can prevent any delays in getting the data to you.
 
-
-### **Passage Segmentation**
-
-For assessment, we will judge provenance passages. We segment the documents in our collection into passages in a similar manner as done by the TREC Deep Learning track for segmenting MS MARCO documents into passages: First, each document is trimmed to 10k characters. Then a 10-sentence sliding window with a 5-sentence stride is used to generate the passages.  
-
-An example document with some passage segmentation is provided in TrecWeb format below for illustration purposes: 
-
-```xml
-<DOC>
-	<DOCNO>clueweb22-en0020-70-00000</DOCNO>
-	<DOCHDR></DOCHDR>
-	<HTML>
-		<TITLE>06AECE252028B717019F2802EB065B68</TITLE>
-		<URL>https://pokemon.fandom.com/wiki/Donphan</URL>
-		<BODY>
-			<PASSAGE id=0>
-				It has thin, elongated ears held out almost perpendicular to its
-				body. Its four short legs...
-			</PASSAGE>
-			<PASSAGE id=1>
-				It has been demonstrated that Donphan has a keen sense of smell,
-				capable of sniffing out a gem known as amberite. Donphan...
-			</PASSAGE>
-		</BODY>
-	</HTML>
-</DOC>
-```
-
 ### **Provided ClueWeb22 Indices**
 
 As of now, our resource includes a BM25 Pyserini index of the collection, and a SPLADE index of the collection. 
 
-The SPLADE index was made with the numba library, as in the original [SPLADE github](https://github.com/naver/splade), and can be re-used for retrieval. It uses the [SPLADE++ model](https://huggingface.co/naver/splade-cocondenser-ensembledistil). 
-
-[//]: # (![Picture depicting passage segmentation for iKAT]&#40;passage-segmentation.png&#41;)
+The SPLADE index was made with the numba library, as in the original [SPLADE github](https://github.com/naver/splade), and can be re-used for retrieval. It uses the [SPLADE++ model](https://huggingface.co/naver/splade-cocondenser-ensembledistil).
 
 ## **Topics**
 
@@ -595,103 +535,22 @@ We will provide several sample topics with example baseline runs for validation 
 ]
 ```
 
-### **Sample Topics**
-
-We are releasing two sample conversations on the topic "Finding a University". Each conversation pertains to a different persona, and the conversation is personalized to that persona. You can find the sample topic [here](https://drive.google.com/file/d/1ZdVXNqnzP1XpYpJejIRn3pzva8Pke9v_/view).  
-
-Those eager to start developing and experimenting can also use the data from previous years of TREC CAsT and TREC iKAT 2023 and 2024 that is available [here](https://www.trecikat.com/additional_data/). 
-
 
 ## **Task Submissions**
 
-Participants submit the output of their system on the specified “test” topics.  A single participant can submit a maximum of: 
-
-- 4 automatic runs, 
-- 2 generation-only runs,
-- 2 interactive runs.
-
-In the automatic runs, the participants can include response generation based on their own ranking, but this is not mandatory.
-
-In the generation-only run, the participants **must use** the given passage provenances. 
-
-We have three submission classes for each of the 1) automatic, 2) generation-only, and 3) interactive tasks. An example of the submission template for each class of submission is below.  
-
-### **Sample submission for the offline task**
-
-```json
-{ 
-  "metadata":{ 
-    "team_id":"my_favourite_team", 
-    "run_id":"my_best_run_02", 
-    "run_type":"automatic"
-  },
-  "turn_id":"1-2_3", 
-  "responses":[ 
-    { 
-      "rank":1, 
-      "text":"The University of British Columbia in Vancouver has temperatures near 80 degrees Fahrenheit (27 degrees Celsius) in summer and up to 45 degrees Fahrenheit (about 7 degrees Celsius) in winter which is suitable for you. The university of Toronto is acceptable since has cold winters, average temperatures can drop below -10 ° C but not below 12 degrees for long. The Concordia university in Montreal is not suitable for you since in the winter, could reach minus 40 with the wind chill. University of Alberta is also not suitable for you. In winter the average temperature varies between -6.5°C (20.3°F) and -13.5°C (7.7°F). Simon Fraser university is not acceptable for you. The city which the university is located in will reach temperatures of -14 in the winter.", 
-      "citations":{ 
-        "clueweb22-en0000-94-02275:0":0.6, 
-        "clueweb22-en0027-06-08704:1":0.5, 
-        "clueweb22-en0005-63-12144:0":0.4 
-                  }, 
-      "ptkb_provenance":[ 
-        "I cannot withstand the temperatures below -12 for a long time", 
-        "I’m used to heavy rains in the Netherlands" 
-      ] 
-    }, 
-    { 
-      "rank":2, 
-      "text":" The University of British Columbia and Simon Fraser University are the best fits, as Vancouver's mild, rainy winters are similar to the Netherlands. The University of Toronto is colder and snowier but still manageable. Concordia University and the University of Alberta have much harsher winters and would likely feel too cold for your preferences. ", 
-      "citations":{ 
-        "clueweb22-en0001-23-18493:4":0.8, 
-        "clueweb22-en0028-93-98372:9":0.3 
-	  }, 
-      "ptkb_provenance":[ 
-        "I cannot withstand the temperatures below -12 for a long time", 
-        "I’m used to heavy rains in the Netherlands" 
-	  ]
-     }
-  ], 
-  "references": {
-	  "clueweb22-en0000-94-02275:0": 0.6,
-	  "clueweb22-en0027-06-08704:1": 0.5,
-	  "clueweb22-en0005-63-12144:0": 0.4,
-	  "clueweb22-en0001-23-18493:4": 0.8,
-	  "clueweb22-en0028-93-98372:9": 0.3
-  } 
- }
-```
-
-- The `run_id` is a run submission identifier that should be descriptive and unique to your team and institution. 
-- The `run_type` is one of the three types “automatic”, “generation-only”, or “interactive”. 
-- The `turn_id` is the identifier for each turn of the conversation and has the following format: `{topic_id}_{turn_number}`. For example, `turn_id` of `1-2_3` refers to the turn `3` of topic `1-2`.
-- Each turn should also contain a list of `responses`. A response consists of `text` and a `citations` list. The `citations` list is a list of passage provenances used for generating the response. 
-- Each turn includes a set of statements from the PTKB in the field called `ptkb_provenance`. It can also contain some statements from previous interactions of the user with the system. 
-- The field `references` includes the list of retrieved passages by retrieval model. 
-- For the “generation-only” runs, the `reference` field should be empty.
-
-The run file should be in `.jsonl` format and should include individual JSON objects for each `turn_id`. For readability and illustration purposes, above example was pretty-printed (i.e., line breaks and indents render the example invalid `.jsonl`).     
-
-For provenance ranking, this will be converted to a traditional TREC run format. These rankings are created based on the `references` field: 
-
-```
-31_1-1 Q0 clueweb22-en0000-94-02275:0 1 0.5 sample_run
-```
-
-Runs may include up to 1000 responses for each user turn. For provenance ranking, only the first 1000 pieces of unique provenance will be used. As in previous year of iKAT, only limited top-k responses and provenances will be assessed according to resource constraints.
+Submissions to iKAT will be done via the user simulation API ([Sim.API](https://github.com/marcel-gohsen/user-simulation-api)). Please refer to the [technical documentation](simulation-api.md) for more details on the submission process.
 
 
 ## **Evaluation**
 
 We will use the relevance assessment methods used in the previous year of iKAT 2023 for relevance to individual turns. 
 
-1. **Citations Assessment:**     The cited passaged that are used to produce the responses will be pooled and assessed. The relevance scale will be the same as in previous years of CAsT and the first year of iKAT, see the previous overview papers for details. The standard ranking metrics such as P@k, NDCG@k, and MAP will be calculated using the judgments. We will focus on the earlier positions (1, 3, 5). 
-2. **Response Assessment:**     A response may be a simple passage or a summary of one or more passages. We will assess the top-ranked response from all systems for a subset of turns. Only responses with at least one citation will be judged. We will assess the quality of generated responses in three different ways. First, we will assess the relevance, naturalness, completeness, and groundedness. Second,  we assess the precision and recall of nuggets of information for the responses. We consider the nugget recall and nugget precision as the coverage and correctness of the responses, respectively. Third, we use surface-based metrics like BLEU and ROUGE to n-gram similarity between the generated response and the manual response. The responses and judgments on them will be released with the judgments. 
-3. **Extracted Relevant PTKB Statements Assessment:** The standard metrics like Precision, Recall, and F1 will be used for evaluating the identified list of relevant statements from PTKB. We will assess both pre-defined and newly extracted PTKB statements by the teams. 
-4. **Dialogue-level Assessment**: Assessing the whole dialogue and the trajectory in the interactive subtask. Given the flexible nature of the simulated dialogues, we will devise dialogue-level metrics that take into account the system’s capabilities to provide useful information to the users in the dialogue as a whole. These could be based on ideas such as “last-bot-standing”, or returning the most nuggets in the same time budget. More details will follow later. 
+1. **Citations Assessment:** The cited passages that are used to produce the responses will be pooled and assessed. The relevance scale will be the same as in previous years of  iKAT, see the previous overview papers for details. The standard ranking metrics such as P@k, NDCG@k, and MAP will be calculated using the judgments. We will focus on the earlier positions (1, 3, 5). 
+2. **Extracted Relevant PTKB Statements Assessment:**  The standard metrics like Precision, Recall, and F1 will be used for evaluating the identified list of relevant statements from PTKB. We will assess both pre-defined and newly extracted PTKB statements by the teams. 
+3. **Response Assessment:** Submitted responses will be evaluated by a mixture of LLM-as-a-judge and human annotations on standard criteria (e.g., relevance, coherence). Additionally, nugget based evaluation metrics will be considered for the evaluation of responses as well.
+4. **Dialogue-level Assessment**: We will assess the whole dialogue and the trajectory. Given the flexible nature of the simulated dialogues, we will devise dialogue-level metrics that take into account the system’s capabilities to provide useful information to the users in the dialogue as a whole. These could be based on ideas such as “last-bot-standing”, or returning the most nuggets in the same time budget. More details will follow later. 
 
-Similar to the first two years of iKAT, only a subset of turns may be evaluated for provenance ranking effectiveness and response generation quality. This will be disclosed to participants only after the assessment is completed.
+Similar to the past years of iKAT, only a subset of turns may be evaluated for provenance ranking effectiveness and response generation quality. This will be disclosed to participants only after the assessment is completed. 
 
 ## Related Resources
 
@@ -704,20 +563,6 @@ Below are some useful code resources related to TREC iKAT.
   	- [https://github.com/EricLangezaal/PersonalizedCIR](https://github.com/EricLangezaal/PersonalizedCIR)
   	- [https://github.com/SimonLupart/ikat-2024-baseline](https://github.com/SimonLupart/ikat-2024-baseline)
   	- [https://github.com/shubham526/ikat-2024](https://github.com/shubham526/ikat-2024)
-
-
-
-## **Timeline**
-
-Dates are given in the Anywhere on Earth (AoE) timezone.  
-
-| Task               	             |          Date     	 |
-|:---------------------------------|--------------------:|
-| Guidelines released              |   May 16, 2025    	 |
-| Test topics released             |  June 23, 2025    	 |
-| Offline submission deadline      |   July 27, 2025   	 |
-| Interactive submission deadline  | August 15, 2025   	 |
-| Results released to participants |     October, 2025 	 |
 
 
 

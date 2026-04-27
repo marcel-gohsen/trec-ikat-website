@@ -2,48 +2,50 @@
 
 
 [//]: # ([:fontawesome-brands-github: See the official TREC iKAT repository for tools and code related to the track]&#40;https://github.com/irlabamsterdam/iKAT&#41;)
-
+> Last updated: April 27, 2026
 ---
-> Last updated: April 10, 2026
 
 
-[//]: # (## **Announcements**)
 
-## Overview
+## **News**
 
+* [27/04/2026] [Guidelines](guidelines.md) for iKAT 2026 released
+
+
+## **Overview**
 
 While the conversational interaction paradigm becomes more and more prevalent for search, the challenge of adapting system responses to individual users (i.e., personalization) still remains a challenge for conversational retrieval systems. Since answer relevance is highly subjective, personalization is necessary to build effective user-centric retrieval systems. From the beginning, personalization of conversational search is the central goal of the Interactive Knowledge Assistance Track (iKAT). The iKAT shared task can look back on four years under former name, Conversational Assistance Track (CAsT), and three years under the current name, iKAT, hosted at TREC. In 2026, iKAT will be organized in collaboration with the SCAI workshop that will take place at SIGIR 2026 in Melbourne, Australia.
 
 
-## iKAT @ SCAI 2026
+## **iKAT @ SCAI 2026**
 
 In 2026, iKAT will be hosted in the context of the 10th anniversary of the [Search-Oriented Conversational AI (SCAI)](https://scai.info/scai-2026/) workshop at SIGIR. The focus of iKAT 2026 will be to explore the robustness of conversational retrieval systems towards diverse interaction strategies of individual users. Participant systems interact with various simulated users to provide tailored responses to individual information needs, benchmarking how robust and resilient the systems are when facing various behavioral traits and search strategies.
 
 More information on the submission procedure and guidelines will follow soon!
 
 
-### Important Dates
+### **Important Dates**
 
 Preliminary dates for iKAT 2026 are listed below. These dates might be still subject of change. 
 
-* Release of submission guidelines: ASAP
+* Release of submission guidelines: April, 27, 2026.
 * Registration deadline: May 27, 2026.
 * System submission opens: May 27, 2026.
 * System submission deadline: June 10, 2026.
 * Report submission deadline: July 17, 2026.
 * **SCAI Workshop: July 24, 2026.**
 
-### Registration
+### **Registration**
 
 In order to participate at iKAT, please fill out the following [registration form](https://form.jotform.com/260753949743066) before the registration deadline.
 
 
-### Submit Your Runs 
+### **Submit Your Runs** 
 
 We will soon share details of how to submit the runs. Stay tuned!
 
 
-## Track Coordinators
+## **Track Coordinators**
 
 **[Marcel Gohsen](https://www.uni-weimar.de/en/media/chairs/computer-science-department/webis/people/gohsen/), Bauhaus-Universität Weimar, Germany.** Marcel is a PhD student at the chair of Intelligent Information Systems supervised by Prof. Dr. Benno Stein. His research concentrates on the intersection between information retrieval and natural language processing with a particular focus on conversational search, user simulation, and generative IR.
 
@@ -60,7 +62,7 @@ We will soon share details of how to submit the runs. Stay tuned!
 **[Jeff Dalton](https://www.dcs.gla.ac.uk/~jeff/), University of Edinburgh, Scotland.** Dr. Dalton is a Associate Professor (Reader) and Chancellor's Fellow at the School of Informatics, the University of Edinburgh. He is also a Turing AI Fellow and PI for the GRILL Lab. His research focuses on new methods for machine understanding of language and text data using deep neural networks and entity knowledge graphs for improving information seeking applications.
 
 
-## Publications
+## **Publications**
 
 - [iKAT 2025] [TREC iKAT 2025: The Interactive Knowledge Assistance Track Overview](https://pages.nist.gov/trec-browser/trec34/ikat/proceedings/#trec-ikat-2025-the-interactive-knowledge-assistance-track-overview)
 - [iKAT 2024] [TREC iKAT 2024: The Interactive Knowledge Assistance Track Overview](https://trec.nist.gov/pubs/trec33/papers/Overview_ikat.pdf)
@@ -69,6 +71,6 @@ We will soon share details of how to submit the runs. Stay tuned!
 - [iKAT 2023] [TREC iKAT 2023: A Test Collection for Evaluating Conversational and Interactive Knowledge Assistants](https://dl.acm.org/doi/abs/10.1145/3626772.3657860)
 
 
-## Contact
+## **Contact**
 - Email: [trec.ikat.ai@gmail.com](mailto:trec.ikat.ai@gmail.com)
 - Google Groups: [trec-ikat@googlegroups.com](https://groups.google.com/u/3/g/trec-ikat)

@@ -1,6 +1,6 @@
-# **TREC iKAT Simulation API**
+# **Simulation API (Sim.API)**
 
-In TREC iKAT Year 3, we offer an interactive task in which a simulated user sends out utterances to participants' systems. For more information on this task please check [the guidelines](./guidelines.md#new-interactive-response-generation).
+Like last year, iKAT 2026 offers an interactive task in which a simulated user sends out utterances to participants' systems. For more information on the task please check [the guidelines](./guidelines.md).
 
 This API can be used for two main purposes:
 
@@ -11,7 +11,7 @@ The API is available at [https://trec-ikat25.webis.de/simulation/](https://trec-
 
 ## **Authentication**
 
-Participants need to be registered to TREC iKAT to use this API. You can use [this form](https://docs.google.com/forms/d/1e7mZsiGXNzXXRVAddU5Mnrzy5-zdNW9ZHuIi4xBMf-o/edit) to do so. As a result, participants will receive a base64-encoded access token by mail. 
+Participants need to be registered to iKAT to use this API. Please refer to the registration instructions [here](index.md#registration). As a result, participants will receive a base64-encoded access token by mail. 
 
 All requests to this API have to be authenticated. Participants can authenticate themselves by providing their access token in the HTTP `Authorization` header. 
 
@@ -257,8 +257,6 @@ As a response, you will receive the run file in the submission format for this t
 
 ## **Support**
 
-Questions, technical issues or feedback? Write a mail or send a message in the Slack:
+Questions, technical issues or feedback? Don't hesitate to write a mail.
 
-- Email: [trec.ikat.ai@gmail.com](mailto:trec.ikat.ai@gmail.com)
-- Email: [marcel.gohsen@uni-weimar.de](mailto:marcel.gohsen@uni-weimar.de). 
-- Slack: [ikat-2025](https://app.slack.com/client/T43BZ4E0K/C08BWS8KM4K)
+- Email: [marcel.gohsen@uni-weimar.de](mailto:marcel.gohsen@uni-weimar.de).
