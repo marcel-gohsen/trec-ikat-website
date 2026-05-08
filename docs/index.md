@@ -2,7 +2,7 @@
 
 
 [//]: # ([:fontawesome-brands-github: See the official TREC iKAT repository for tools and code related to the track]&#40;https://github.com/irlabamsterdam/iKAT&#41;)
-> Last updated: April 27, 2026
+> Last updated: May 8, 2026
 ---
 
 
