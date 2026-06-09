@@ -692,18 +692,18 @@
 
 
 <h1 id="simulation-api-simapi"><strong>Simulation API (Sim.API)</strong></h1>
-<p>Like last year, iKAT 2026 offers an interactive task in which a simulated user sends out utterances to participants' systems. For more information on the task please check <a href="../guidelines/">the guidelines</a>.</p>
-<p>This API can be used for two main purposes:</p>
+<p>Like last year, iKAT 2026 offers an interactive task in which simulated users interact with participants' systems to produce conversations. Find more information on the task in <a href="../guidelines/">the guidelines</a>. The communication between the user simulators and the participants is established via our self-hosted user simulation API (<a href="https://github.com/marcel-gohsen/user-simulation-api">Sim.API</a>).  </p>
+<p>This API is used for two main purposes:</p>
 <ol>
 <li><a href="#submitting-runs">Submitting runs for the interactive task</a>.   </li>
 <li><a href="#debugging--testing-a-system">Developing, debugging and testing of participants' systems</a>.</li>
 </ol>
-<p>The API is available at <a href="https://trec-ikat25.webis.de/simulation/">https://trec-ikat25.webis.de/simulation/</a>. From there you will be redirected to a reference of all provided endpoints and their expected in- and outputs.</p>
+<p>The API is available at <a href="https://scai-ikat26.webis.de/simulation/">https://scai-ikat26.webis.de/simulation/</a>. From there you will be redirected to a reference of all provided endpoints and their expected in- and outputs.</p>
 <h2 id="authentication"><strong>Authentication</strong></h2>
 <p>Participants need to be registered to iKAT to use this API. Please refer to the registration instructions <a href="../#registration">here</a>. As a result, participants will receive a base64-encoded access token by mail. </p>
 <p>All requests to this API have to be authenticated. Participants can authenticate themselves by providing their access token in the HTTP <code>Authorization</code> header. </p>
 <p>You can test if your access token is valid by calling the following method:</p>
-<pre><code class="language-bash">curl -H &quot;Authorization: Bearer &lt;token&gt;&quot; https://trec-ikat25.webis.de/simulation/auth/verify
+<pre><code class="language-bash">curl -H &quot;Authorization: Bearer &lt;token&gt;&quot; https://scai-ikat26.webis.de/simulation/auth/verify
 </code></pre>
 <p>If your token is valid, the API will respond with:</p>
 <pre><code class="language-json">{&quot;team_id&quot;:  &quot;&lt;TEAM_ID&gt;&quot;}
@@ -717,14 +717,17 @@
 <ul>
 <li><code>run_id</code>: Unique name that identifies your run. Please choose a meaningful name (e.g., <code>teamA-llama3-dense-retrieval</code>).  </li>
 <li><code>description</code>: Brief description of the used approach in this run.  </li>
-<li><code>track_persona</code>: Indicate if your approach extracts and keeps track of persona statements of reoccurring users.   </li>
+<li><code>extra.track_persona</code>: Indicate if your approach extracts and keeps track of persona statements of reoccurring users.   </li>
 </ul>
 <p>An example request looks like this:</p>
 <pre><code class="language-bash">curl -X POST -H &quot;Authorization: Bearer &lt;token&gt;&quot; -H &quot;Content-Type: application/json&quot; -d \
  '{
     &quot;run_id&quot;: &quot;teamA-llama3-dense-retrieval&quot;,
-    &quot;description&quot;: &quot;The approach uses a retrieval-augmented generation pipeline with llama3.3 70B as generation backbone and a dense retrieval approach for the retrieval of relevant passages.&quot;, 
-     &quot;track_persona&quot;: false
+    &quot;description&quot;: &quot;The approach uses a retrieval-augmented generation pipeline with llama3.3 70B as generation backbone and a dense retrieval approach for the retrieval of relevant passages.&quot;,
+    &quot;extra&quot;: {
+       &quot;track_persona&quot;: false
+    } 
+
   }' https://trec-ikat25.webis.de/simulation/run/start
 </code></pre>
 <p>A response to a successful request looks like this:</p>
@@ -738,19 +741,26 @@
     {&quot;role&quot;:&quot;user&quot;,&quot;content&quot;:&quot;Show me universities with computer science programs.&quot;}
   ],
   &quot;last_response_of_session&quot;:false,
-  &quot;last_response_of_run&quot;:false
+  &quot;last_response_of_run&quot;:false,
+  &quot;user_meta&quot;: {
+    &quot;ptkb&quot;: [
+      &quot;I have a Bachelor's degree in computer science.&quot;
+      &quot;...&quot;
+    ]
+  }
 }
 </code></pre>
 <p>Responses contain the following fields:</p>
 <ul>
 <li><code>timestamp</code>: Time and date of the current response.</li>
 <li><code>run_id</code>: The chosen identifier for the run.</li>
-<li><code>topic_id</code>: Id of the current topic of TREC iKAT 2025 test set. </li>
-<li><code>user_id</code>: Uuid4 that identifies a (simulated) user the system talks with. This helps to identify reoccurring users. </li>
+<li><code>topic_id</code>: Id of the current topic of a secret iKAT 2026 test set. </li>
+<li><code>user_id</code>: An identifier of the (simulated) user the system talks with. </li>
 <li><code>utterance</code>: Current utterance of the user.</li>
 <li><code>history</code>: A list of the current and prior utterances in LLM-compatible format that can be used to track the current context of the conversation. </li>
 <li><code>last_response_of_session</code>: Flag that indicates that the current session (for the current topic) is terminated by the user. If true, the next response will be about a new topic. </li>
 <li><code>last_response_of_run</code>: Flag that indicates that the current session is terminated by the user and that there are no open topics left. If true, your run is completed and successfully submitted.  </li>
+<li><code>user_meta</code>: Additional metadata about the user. All the users will return their corresponding PTKB-statements for easy access.</li>
 </ul>
 <h3 id="2-responding-to-user-utterances">2. Responding to User Utterances</h3>
 <p>After a run is started like shown above, participants receive the first user utterance. From now until the run is completed, participants respond to user utterances by calling the <code>run/continue</code> endpoint. Participants should always provide the following information: </p>
@@ -758,7 +768,7 @@
 <li><code>run_id</code>: The chosen identifier for the run.</li>
 <li><code>response</code>: The generated response of the system. This cannot exceed 250 tokens.</li>
 <li><code>citations</code>: The (up to) top 1000 relevant passages given as their ids and their relevance score. </li>
-<li><code>ptkb_provenance</code>: (Optional) PTKB statements that are considered relevant for the current turn. </li>
+<li><code>meta</code>: Additional metadata about the generated assistant response with an optional <code>ptkb_provenance</code> attribute with PTKB statements that are considered relevant for the current turn. </li>
 </ul>
 <p>An example request looks like this:</p>
 <pre><code class="language-bash">curl -X POST -H &quot;Authorization: Bearer &lt;token&gt;&quot; -H &quot;Content-Type: application/json&quot; -d\
@@ -769,12 +779,14 @@
      &quot;clueweb22-en0032-04-00208:7&quot;: 0.8, 
      &quot;clueweb22-en0027-84-11778:0&quot;: 0.4
    },
-   &quot;ptkb_provenance&quot;: [
-     &quot;I live in the Netherlands.&quot;
-   ]
-  }' https://trec-ikat25.webis.de/simulation/run/continue
+   &quot;meta&quot;: {
+     &quot;ptkb_provenance&quot;: [
+       &quot;I live in the Netherlands.&quot;
+     ]
+   }
+  }' https://scai-ikat26.webis.de/simulation/run/continue
 </code></pre>
-<p>Successful requests always result in responses formatted as mentioned above. </p>
+<p>Successful requests always result in API responses formatted as mentioned above. </p>
 <pre><code class="language-json">{
   &quot;timestamp&quot;:&quot;2025-05-06T11:16:53.306006&quot;,&quot;run_name&quot;:&quot;teamA-llama3-dense-retrieval&quot;,
   &quot;topic_id&quot;:&quot;1-1&quot;,
@@ -785,7 +797,13 @@
     {&quot;role&quot;:&quot;assistant&quot;,&quot;content&quot;:&quot;University of Amsterdam&quot;},
     {&quot;role&quot;:&quot;user&quot;,&quot;content&quot;:&quot;That’s a good start, but the initial response wasn’t helpful. Could you specifically tell me which programs at the University of Amsterdam emphasize courses similar to the ones I enjoyed during my bachelor’s degree – specifically data structures, algorithms, data mining, and artificial intelligence?&quot;}],
   &quot;last_response_of_session&quot;:false, 
-  &quot;last_response_of_run&quot;:false
+  &quot;last_response_of_run&quot;:false,
+  &quot;user_meta&quot;: {
+    &quot;ptkb&quot;: [
+      &quot;I have a Bachelor's degree in computer science.&quot;
+      &quot;...&quot;
+    ]
+  }
 }
 </code></pre>
 <h3 id="3-switching-topics">3. Switching Topics</h3>
@@ -794,35 +812,35 @@
 <h3 id="4-finishing-a-run">4. Finishing a Run</h3>
 <p>When the (simulated) users inquired about all topics in the dataset, the flag <code>last_response_of_run</code> will become true. This indicates that the run is done. Further requests after this flag becomes true will lead to errors.</p>
 <h3 id="limits">Limits</h3>
-<p>Participants can submit up to two runs. Incomplete runs will be evaluated as well. Missing topics will be assessed with a performance of zero.   </p>
+<p>Participants can submit up to six runs. Incomplete runs will be evaluated as well. Missing topics will be assessed with a performance of zero.   </p>
 <h2 id="debugging-testing-a-system"><strong>Debugging / Testing a System</strong></h2>
 <p>Participants can also use the API for debugging and testing their systems. To this end, there are equivalent endpoints that emulate a run submission. </p>
 <ul>
-<li><code>https://trec-ikat25.webis.de/simulation/debug/start</code></li>
-<li><code>https://trec-ikat25.webis.de/simulation/debug/continue</code></li>
+<li><code>https://scai-ikat26.webis.de/simulation/debug/start</code></li>
+<li><code>https://scai-ikat26.webis.de/simulation/debug/continue</code></li>
 </ul>
 <p>These two endpoints expect the exact same inputs as their run submission counterparts. </p>
 <p><strong>Important:</strong> Responses submitted to the debugging endpoints will not be evaluated. </p>
 <h3 id="budget-for-requests">Budget for Requests</h3>
 <p>Participants are allowed a limited number of requests for the debugging of their systems. In total, participants can have up to 100 full conversations with a user until all credits are used up. </p>
 <p>To keep track of the available budget, participants can check their available credits with the following request. </p>
-<pre><code class="language-shell">curl -H &quot;Authorization: Bearer &lt;token&gt;&quot; &quot;https://trec-ikat25.webis.de/simulation/budget/check&quot; 
+<pre><code class="language-shell">curl -H &quot;Authorization: Bearer &lt;token&gt;&quot; &quot;https://scai-ikat26.webis.de/simulation/budget/check&quot; 
 </code></pre>
 <h2 id="monitor-submission-progress"><strong>Monitor Submission Progress</strong></h2>
 <h3 id="get-state-of-current-session">Get State of Current Session</h3>
 <p>In case a participants' system crashes mid conversation and didn't keep track of the last utterance, participants can request the state of the current search session without having to provide a response right away. No utterance will be lost by the server and the conversation can be continued right where the crash happened. </p>
-<pre><code class="language-shell">curl -X GET -H &quot;Authorization: Bearer &lt;token&gt;&quot; &quot;https://trec-ikat25.webis.de/simulation/run/session?run_id=teamA-llama3-dense-retrieval&quot;
+<pre><code class="language-shell">curl -X GET -H &quot;Authorization: Bearer &lt;token&gt;&quot; &quot;https://scai-ikat26.webis.de/simulation/run/session?run_id=teamA-llama3-dense-retrieval&quot;
 </code></pre>
-<p>The response follows the same format than when a user utterance is received.  </p>
+<p>The response follows the same format as when a user utterance is received.  </p>
 <h3 id="check-run-status">Check Run Status</h3>
 <p>Participants can check the status of their runs to make sure that everything worked as expected. The following request can be used to check the status.</p>
-<pre><code class="language-shell">curl -X GET -H &quot;Authorization: Bearer &lt;token&gt;&quot; &quot;https://trec-ikat25.webis.de/simulation/run/status?run_id=teamA-llama3-dense-retrieval&quot;
+<pre><code class="language-shell">curl -X GET -H &quot;Authorization: Bearer &lt;token&gt;&quot; &quot;https://scai-ikat26.webis.de/simulation/run/status?run_id=teamA-llama3-dense-retrieval&quot;
 </code></pre>
 <p>A typical response looks like the following.</p>
 <pre><code class="language-json">{
   &quot;status&quot;: &quot;complete&quot;,
-  &quot;open_topics&quot;: [],
-  &quot;done_topics&quot;: [...]
+  &quot;done_user_topic_pairs&quot;: [],
+  &quot;open_user_topic_pairs&quot;: [...]
 }
 </code></pre>
 <p>Responses contain the following fields:
@@ -830,59 +848,15 @@
   * <code>active</code>: The requested run is currently being worked on and is not complete yet.
   * <code>completed</code>: The requested run is done and was submitted successfully.
   * <code>inactive</code>: The run was not completed but (due to an error) the run is currently not active. This can only happen if the server crashes. The run can be worked on as usual which will push the run back into the <code>active</code> state.
-* <code>open_topics</code>: A list of topic ids that still need to be worked on to reach the <code>complete</code> status.
-* <code>done_topics</code>: A list of topic ids of topics that were already completed in this run. </p>
+* <code>open_user_topic_pairs</code>: A list of pairs of topic and user ids that still need to be worked on to reach the <code>complete</code> status.
+* <code>done_user_topic_pairs</code>: A list of pairs of topic and user ids that have been worked on already. </p>
 <h3 id="dump-run-file">Dump Run File</h3>
 <p>For your own documentation you can get a copy of the run submission file. </p>
 <p><strong>Important:</strong> You don't have to submit this file anywhere. This file is just for your own reference.</p>
 <p>To produce the run file you can run the following command:</p>
-<pre><code class="language-shell">curl -H &quot;Authorization: Bearer &lt;token&gt;&quot; &quot;localhost:8888/run/dump?run_id=teamA-llama3-dense-retrieval&quot;
+<pre><code class="language-shell">curl -H &quot;Authorization: Bearer &lt;token&gt;&quot; &quot;scai-ikat26.webis.de/simulation/run/dump?run_id=teamA-llama3-dense-retrieval&quot;
 </code></pre>
 <p>As a response, you will receive the run file in the submission format for this task.</p>
-<pre><code class="language-json">[
-  {
-    &quot;metadata&quot;: {
-      &quot;team_id&quot;: &quot;teamA&quot;,
-      &quot;run_id&quot;: &quot;teamA-llama3-dense-retrieval&quot;,
-      &quot;type&quot;: &quot;interactive&quot;,
-      &quot;description&quot;: &quot;The approach uses a retrieval-augmented generation pipeline with llama3.3 70B as generation backbone and a dense retrieval approach for the retrieval of relevant passages.&quot;,
-      &quot;track_persona&quot;: 0,
-      &quot;topic_id&quot;: &quot;1-1_0&quot;
-    },
-    &quot;responses&quot;: [
-      {
-        &quot;rank&quot;: 1,
-        &quot;user_utterance&quot;: &quot;Okay, let’s start with a list of elite universities in Canada.&quot;,
-        &quot;text&quot;: &quot;I don't know.&quot;,
-        &quot;citations&quot;: {},
-        &quot;ptkb_provenance&quot;: []
-      }
-    ],
-    &quot;references&quot;: {}
-  },
-  {
-     &quot;metadata&quot;: {
-      &quot;team_id&quot;: &quot;teamA&quot;,
-      &quot;run_id&quot;: &quot;teamA-llama3-dense-retrieval&quot;,
-      &quot;type&quot;: &quot;interactive&quot;,
-      &quot;description&quot;: &quot;The approach uses a retrieval-augmented generation pipeline with llama3.3 70B as generation backbone and a dense retrieval approach for the retrieval of relevant passages.&quot;,
-      &quot;track_persona&quot;: 0,
-      &quot;topic_id&quot;: &quot;1-1_1&quot;
-    },
-    &quot;responses&quot;: [
-      {
-        &quot;rank&quot;: 1,
-        &quot;user_utterance&quot;: &quot;Specifically, which elite universities exist in Canada that might be suitable for a Computer Science graduate from the Netherlands, considering my preference for moderate climates and lack of a driver's license?&quot;,
-        &quot;text&quot;: &quot;I don't know.&quot;,
-        &quot;citations&quot;: {},
-        &quot;ptkb_provenance&quot;: []
-      }
-    ],
-    &quot;references&quot;: {}
-  },
-  ...
-]
-</code></pre>
 <h2 id="support"><strong>Support</strong></h2>
 <p>Questions, technical issues or feedback? Don't hesitate to write a mail.</p>
 <ul>
