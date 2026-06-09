@@ -2,15 +2,16 @@
 
 
 [//]: # ([:fontawesome-brands-github: See the official TREC iKAT repository for tools and code related to the track]&#40;https://github.com/irlabamsterdam/iKAT&#41;)
-> Last updated: May 29, 2026
+> Last updated: June 8, 2026
 ---
 
 
 
 ## **News**
 
-* [27/05/2026] Deadline extended for registration and system submission
-* [27/04/2026] [Guidelines](guidelines.md) for iKAT 2026 released
+* [08/06/2026] [Simulation API](simulation-api.md) is online.
+* [27/05/2026] Deadline extended for registration and system submission.
+* [27/04/2026] [Guidelines](guidelines.md) for iKAT 2026 released.
 
 
 ## **Overview**
@@ -21,8 +22,6 @@ While the conversational interaction paradigm becomes more and more prevalent fo
 ## **iKAT @ SCAI 2026**
 
 In 2026, iKAT will be hosted in the context of the 10th anniversary of the [Search-Oriented Conversational AI (SCAI)](https://scai.info/scai-2026/) workshop at SIGIR. The focus of iKAT 2026 will be to explore the robustness of conversational retrieval systems towards diverse interaction strategies of individual users. Participant systems interact with various simulated users to provide tailored responses to individual information needs, benchmarking how robust and resilient the systems are when facing various behavioral traits and search strategies.
-
-More information on the submission procedure and guidelines will follow soon!
 
 
 ### **Important Dates**
@@ -43,7 +42,7 @@ In order to participate at iKAT, please fill out the following [registration for
 
 ### **Submit Your Runs** 
 
-We will soon share details of how to submit the runs. Stay tuned!
+Runs will be submitted via our self-hosted user simulation API ([Sim.API](https://github.com/marcel-gohsen/user-simulation-api)). Detailed information about the submission process can be found in [here](simulation-api.md).
 
 
 ## **Track Coordinators**
