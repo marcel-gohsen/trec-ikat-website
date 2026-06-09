@@ -69,7 +69,7 @@ A response to a successful request looks like this:
   "last_response_of_run":false,
   "user_meta": {
     "ptkb": [
-      "I have a Bachelor's degree in computer science."
+      "I have a Bachelor's degree in computer science.",
       "..."
     ]
   }
@@ -131,7 +131,7 @@ Successful requests always result in API responses formatted as mentioned above.
   "last_response_of_run":false,
   "user_meta": {
     "ptkb": [
-      "I have a Bachelor's degree in computer science."
+      "I have a Bachelor's degree in computer science.", 
       "..."
     ]
   }
@@ -201,17 +201,20 @@ A typical response looks like the following.
 {
   "status": "complete",
   "done_user_topic_pairs": [],
-  "open_user_topic_pairs": [...]
+  "open_user_topic_pairs": []
 }
 ```
 
 Responses contain the following fields:
-* `status`: There are three possible values for status:
-  * `active`: The requested run is currently being worked on and is not complete yet.
-  * `completed`: The requested run is done and was submitted successfully.
-  * `inactive`: The run was not completed but (due to an error) the run is currently not active. This can only happen if the server crashes. The run can be worked on as usual which will push the run back into the `active` state.
-* `open_user_topic_pairs`: A list of pairs of topic and user ids that still need to be worked on to reach the `complete` status.
-* `done_user_topic_pairs`: A list of pairs of topic and user ids that have been worked on already. 
+
+- `status`: There are three possible values for status:  
+  
+     * `active`: The requested run is currently being worked on and is not complete yet.
+     * `completed`: The requested run is done and was submitted successfully.
+     * `inactive`: The run was not completed but &#40;due to an error&#41; the run is currently not active. This can only happen if the server crashes. The run can be worked on as usual which will push the run back into the `active` state.
+  
+- `open_user_topic_pairs`: A list of pairs of topic and user ids that still need to be worked on to reach the `complete` status.  
+- `done_user_topic_pairs`: A list of pairs of topic and user ids that have been worked on already.  
 
 ### Dump Run File
 
