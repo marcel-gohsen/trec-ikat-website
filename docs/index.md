@@ -2,13 +2,14 @@
 
 
 [//]: # ([:fontawesome-brands-github: See the official TREC iKAT repository for tools and code related to the track]&#40;https://github.com/irlabamsterdam/iKAT&#41;)
-> Last updated: June 8, 2026
+> Last updated: June 12, 2026
 ---
 
 
 
 ## **News**
 
+* [12/06/2026] Run submission opened.
 * [08/06/2026] [Simulation API](simulation-api.md) is online.
 * [27/05/2026] Deadline extended for registration and system submission.
 * [27/04/2026] [Guidelines](guidelines.md) for iKAT 2026 released.
@@ -31,7 +32,7 @@ Preliminary dates for iKAT 2026 are listed below. These dates might be still sub
 * Release of submission guidelines: April 27, 2026.
 * Registration deadline: <span style="color: gray">~~May 27, 2026~~</span> June 3, 2026.
 * System submission opens: June 3, 2026.
-* System submission deadline: <span style="color: gray">~~June 10, 2026~~</span> June 17, 2026.
+* System submission deadline: <span style="color: gray">~~June 17, 2026~~</span> June 21, 2026.
 * Report submission deadline: July 17, 2026.
 * **SCAI Workshop: July 24, 2026.**
 
